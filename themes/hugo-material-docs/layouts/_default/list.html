@@ -27,13 +27,13 @@
             </a>
             <br> 
            
-              {{substr .Summary 0 300 | markdownify }} 
+              {{substr .Summary 0 50 | markdownify }} 
               <a href="{{ .Permalink }}"><br>[阅读全文]</a>  
             
             <hr> {{ end }}
 
             <aside class="copyright" role="note">
-                {{ with .Site.Params.copyright }} &copy; {{ now.Format "2006" }} {{ . }} &ndash; {{ end }} - By John Deng.
+                {{ with .Site.Params.copyright }} &copy; {{ now.Format "2006" }} {{ . }} &ndash; {{ end }} - Aiden.
             </aside>
         </div>
     </article>
