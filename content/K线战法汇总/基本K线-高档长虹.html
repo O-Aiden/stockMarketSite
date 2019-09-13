@@ -84,7 +84,7 @@ border:1px solid #000}
 
 :root{
     --left:0%;
-    --x:3.8%;
+    --x:4%;
     --left1:calc(var(--left) + var(--x));
     --left2:calc(var(--left) + (2 * var(--x)));
     --left3:calc(var(--left) + (3 * var(--x)));
@@ -92,10 +92,10 @@ border:1px solid #000}
     --left5:calc(var(--left) + (5 * var(--x)));
     --left6:calc(var(--left) + (6 * var(--x)));
     --left7:calc(var(--left) + (7 * var(--x)));
-    --left_dhk1:calc(var(--left7) - 23%);
+    --left_dhk1:calc(var(--left7) - 26%);
     --left8:calc(var(--left) + (8 * var(--x)));
     --left_dhk2:calc(var(--left7) - 10.5%);
-    --left_dhk3:calc(var(--left_dhk2) + 2%);
+    --left_dhk3:calc(var(--left_dhk2) + 5%);
     --left9:calc(var(--left) + (9 * var(--x)));
     --left10:calc(var(--left) + (10 * var(--x)));
     --left11:calc(var(--left) + (11 * var(--x)));
@@ -139,8 +139,8 @@ animation-fill-mode:forwards;
 {
  50%{left: 90%;bottom:100px;}
  51%{left:CALC(var(--left_dhk4) - 20%);bottom:1560px;}
- 70% {left: var(--left_dhk4);bottom:1500px;}
- 100% {left: calc(var(--left_dhk4) + 17.5%);bottom:1420px;}
+ 70% {left: calc(var(--left_dhk4) + 14%);bottom:1500px;}
+ 100% {left: calc(var(--left_dhk4) + 40%);bottom:1420px;}
 }
 
 
@@ -480,11 +480,10 @@ animation-fill-mode:forwards;
 }
 
 .dhk3{ /*见顶信号*/
-    width: 70px;   
-height: 70px; 
+    width: 60px;   
+height: 60px; 
 background: yellow;  
-clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 75% 75%, 75% 100%, 50% 75%, 0% 75%);
--webkit-clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 75% 75%, 75% 100%, 50% 75%, 0% 75%);
+
 position:relative;
 animation:mymove_dhk3 39s 1;
 -webkit-animation:mymove_dhk3 39s 1; /*Safari and Chrome*/
@@ -502,11 +501,10 @@ animation-fill-mode:forwards;
 }
 
 .dhk2{ /*长虹K线出现*/
-    width: 70px;   
-height: 70px; 
-background: yellow;  
-clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 75% 75%, 75% 100%, 50% 75%, 0% 75%);
--webkit-clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 75% 75%, 75% 100%, 50% 75%, 0% 75%);
+    width: 60px;   
+height: 60px; 
+background: yellow;
+
 position:relative;
 animation:mymove_dhk2 33s 1;
 -webkit-animation:mymove_dhk2 33s 1; /*Safari and Chrome*/
