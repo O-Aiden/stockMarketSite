@@ -83,34 +83,35 @@ border:1px solid #000}
 
 
 :root{
-    --left:14%;
-    --left1:calc(var(--left) + 2.5%);
-    --left2:calc(var(--left) + 5%);
-    --left3:calc(var(--left) + 7.5%);
-    --left4:calc(var(--left) + 10%);
-    --left5:calc(var(--left) + 12.5%);
-    --left6:calc(var(--left) + 6*2.5%);
-    --left7:calc(var(--left) + 7*2.5%);
-    --left_dhk1:calc(var(--left7) - 20%);
-    --left8:calc(var(--left) + 8*2.5%);
-    --left_dhk2:calc(var(--left7) - 7.5%);
-    --left_dhk3:calc(var(--left_dhk2) + 2.5%);
-    --left9:calc(var(--left) + 9*2.5%);
-    --left10:calc(var(--left) + 10*2.5%);
-    --left11:calc(var(--left) + 11*2.5%);
-    --left12:calc(var(--left) + 12*2.5%);
-    --left13:calc(var(--left) + 13*2.5%);
-    --left14:calc(var(--left) + 14*2.5%);
-    --left15:calc(var(--left) + 15*2.5%);
-    --left16:calc(var(--left) + 16*2.5%);
-    --left17:calc(var(--left) + 17*2.5%);
-    --left18:calc(var(--left) + 18*2.5%);
-    --left19:calc(var(--left) + 19*2.5%);
-    --left20:calc(var(--left) + 20*2.5%);
-    --left21:calc(var(--left) + 21*2.5%);
-    --left22:calc(var(--left) + 22*2.5%);
-    --left23:calc(var(--left) + 23*2.5%);
-    --left_dhk4:calc(var(--left_dhk2) + 30%);
+    --left:0%;
+    --x:3.5%;
+    --left1:calc(var(--left) + var(--x));
+    --left2:calc(var(--left) + (2 * var(--x)));
+    --left3:calc(var(--left) + (3 * var(--x)));
+    --left4:calc(var(--left) + (4 * var(--x)));
+    --left5:calc(var(--left) + (5 * var(--x)));
+    --left6:calc(var(--left) + (6 * var(--x)));
+    --left7:calc(var(--left) + (7 * var(--x)));
+    --left_dhk1:calc(var(--left7) - 23%);
+    --left8:calc(var(--left) + (8 * var(--x)));
+    --left_dhk2:calc(var(--left7) - 10.5%);
+    --left_dhk3:calc(var(--left_dhk2) + 2%);
+    --left9:calc(var(--left) + (9 * var(--x)));
+    --left10:calc(var(--left) + (10 * var(--x)));
+    --left11:calc(var(--left) + (11 * var(--x)));
+    --left12:calc(var(--left) + (12 * var(--x)));
+    --left13:calc(var(--left) + (13 * var(--x)));
+    --left14:calc(var(--left) + (14 * var(--x)));
+    --left15:calc(var(--left) + (15 * var(--x)));
+    --left16:calc(var(--left) + (16 * var(--x)));
+    --left17:calc(var(--left) + (17 * var(--x)));
+    --left18:calc(var(--left) + (18 * var(--x)));
+    --left19:calc(var(--left) + (19 * var(--x)));
+    --left20:calc(var(--left) + (20 * var(--x)));
+    --left21:calc(var(--left) + (21 * var(--x)));
+    --left22:calc(var(--left) + (22 * var(--x)));
+    --left23:calc(var(--left) + (23 * var(--x)));
+    --left_dhk4:calc(var(--left_dhk2) + 33%);
     
 }
 
@@ -136,10 +137,10 @@ animation-fill-mode:forwards;
 
 @-webkit-keyframes mymove_dhk4 /*Safari and Chrome*/
 {
- 50%{left: 90%;bottom:80px;}
- 51%{left:CALC(var(--left_dhk4) - 20%);bottom:1540px;}
- 70% {left: var(--left_dhk4);bottom:1480px;}
- 100% {left: calc(var(--left_dhk4) + 17.5%);bottom:1400px;}
+ 50%{left: 90%;bottom:100px;}
+ 51%{left:CALC(var(--left_dhk4) - 20%);bottom:1560px;}
+ 70% {left: var(--left_dhk4);bottom:1500px;}
+ 100% {left: calc(var(--left_dhk4) + 17.5%);bottom:1420px;}
 }
 
 
