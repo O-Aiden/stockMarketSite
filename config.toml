@@ -22,7 +22,7 @@ pygmentsStyle = "tango" # "emacs" # "autumn" # "manni" # "friendly"
 [params]
 	# General information
 	author = "Aiden"
-	description = "Documentations demo site."
+	description = "趣股学堂"
 	copyright = "Released under the Apache 2.0 license"
 
 	# Repository

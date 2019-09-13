@@ -21,7 +21,7 @@ pygmentsStyle = "tango" # "emacs" # "autumn" # "manni" # "friendly"
 # for example: pygmentsoptions = "linenos=true"
 [params]
 	# General information
-	author = "John Deng"
+	author = "Aiden"
 	description = "Documentations demo site."
 	copyright = "Released under the Apache 2.0 license"
 
