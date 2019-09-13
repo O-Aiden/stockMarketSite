@@ -1,0 +1,64 @@
+---
+desc: 由 genpost (https://github.com/hidevopsio/genpost) 代码生成器生成
+title: K线汇总
+date: 2019-09-11T13:45:57+08:00
+author: Aiden
+draft: false
+tags:
+- K线汇总
+weight: 3
+---
+
+
+
+<html>
+
+<body>
+<div class="div" >
+
+
+<div class="ch-r"></div>
+<a href="http://www.microsoft.com/" class="a1">@高档长虹</a>
+</div>
+</body>
+
+<head>
+<meta charset="utf-8" />
+<title>
+
+</title>
+<style>
+.div{ position:relative;width:100%;height:100%; 
+border:1px solid #000
+position:absolute;
+left:20px;top:60px;
+} 
+.ch-r{
+    /*长虹*/
+width: 20px;   
+height: 60px; 
+background:red;  
+-webkit-clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+position:absolute;
+left:15px;top:25px;
+}
+
+.a1{
+    position:absolute;
+    left:1px;top:1px;
+}
+
+</style>
+<script type="text/javascript" src = "jQuery/jquery-1.12.4.min.js"></script>
+<script type="text/javascript">
+$(function(){
+    function resizeCanvas(){
+    $('canvas').attr('width',$(window).get(0).innerWidth);
+    $('canvas').attr('height',$(window).get(0).innerWidth);
+    $('canvas').fillRect(0,0,$('canvas').width(),$('canvas').height());
+};
+    resizeCanvas();
+})
+</script>
+</head>
+</html>
