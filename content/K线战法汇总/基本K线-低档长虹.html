@@ -101,15 +101,18 @@ width: 40px;
 height: 50px; 
 background: red;  
 position:relative;
-animation:mymove_dhk3 15s 1;
+animation:mymove_dhk3 40s 1;
 -webkit-animation:mymove_dhk3 40s 1; /*Safari and Chrome*/
 animation-fill-mode:forwards;
 }
 
 @keyframes mymove_dhk3
 {
-0%{left: var(--left9);}
- 100% {left: calc(var(--left_dhk2) + 17.5%);bottom:1400px;}
+    0% {left: calc(var(--left22) + 5%);bottom:825px;}  
+ 60% {left: calc(var(--left22) + 5%);bottom:825px;}
+ 80% {left: calc(var(--left17));bottom:900px;}  
+
+ 100% {left: calc(var(--left22) + 4%);bottom:1100px;}
 }
 
 @-webkit-keyframes mymove_dhk3 /*Safari and Chrome*/
@@ -126,15 +129,14 @@ width: 120px;
 height: 28px; 
 background: yellow;  
 position:relative;
-animation:mymove_dhk2 15s 1;
+animation:mymove_dhk2 60s 1;
 -webkit-animation:mymove_dhk2 60s 1; /*Safari and Chrome*/
 animation-fill-mode:forwards;
 }
 
 @keyframes mymove_dhk2
 {
-0%{left: var(--left9);}
- 100% {left: calc(var(--left_dhk2) + 17.5%);bottom:1400px;}
+    100% {left: calc(var(--left13) + 2%);bottom:780px;}
 }
 
 @-webkit-keyframes mymove_dhk2 /*Safari and Chrome*/
@@ -148,7 +150,7 @@ width: 40px;
 height: 50px; 
 background: yellow;  
 position:relative;
-animation:mymove_dhk1 15s 1;
+animation:mymove_dhk1 52s 1;
 -webkit-animation:mymove_dhk1 52s 1; /*Safari and Chrome*/
 animation-fill-mode:forwards;
 }
@@ -156,7 +158,7 @@ animation-fill-mode:forwards;
 @keyframes mymove_dhk1
 {
 0%{left: var(--left9);}
- 100% {left: calc(var(--left_dhk1) + 17.5%);bottom:1400px;}
+100% {left: calc(var(--left_dhk1) - 5%);bottom:900px;}
 }
 
 @-webkit-keyframes mymove_dhk1 /*Safari and Chrome*/
@@ -179,8 +181,8 @@ animation-fill-mode:forwards;
 
 @keyframes mymove_dhk4
 {
-0%{left: var(--left9);}
- 100% {left: calc(var(--left_dhk4) + 17.5%);bottom:1400px;}
+    0%{left: var(--left9);bottom: 570px;}
+ 100% {left: calc(var(--left11) - 5%);bottom:340px;}
 }
 
 @-webkit-keyframes mymove_dhk4 /*Safari and Chrome*/
@@ -194,14 +196,16 @@ width: 15px;
 height: 50px; 
 background: red;  
 position:relative;
-animation:mymove17 1s 1;
+animation:mymove17 37s 1;
 -webkit-animation:mymove17 37s 1; /*Safari and Chrome*/
 animation-fill-mode:forwards;
 }
 
 @keyframes mymove17
 {
- 100% {left:var(--left16);bottom: 300;}
+    0% {left: var(--left17);bottom:calc(var(--bottom) + 37.5%);}
+    50% {left: var(--left17);bottom:calc(var(--bottom) + 37.5%);}
+ 100% {left: var(--left17);bottom:calc(var(--bottom) + 70%);}
 }
 
 @-webkit-keyframes mymove17 /*Safari and Chrome*/
@@ -216,14 +220,16 @@ width: 15px;
 height: 50px; 
 background: red;  
 position:relative;
-animation:mymove18 1s 1;
+animation:mymove18 39s 1;
 -webkit-animation:mymove18 39s 1; /*Safari and Chrome*/
 animation-fill-mode:forwards;
 }
 
 @keyframes mymove18
 {
- 100% {left:var(--left18);bottom: 300;}
+    0% {left: var(--left18);bottom:calc(var(--bottom) + 50%);}
+    50% {left: var(--left18);bottom:calc(var(--bottom) + 50%);}
+ 100% {left: var(--left18);bottom:calc(var(--bottom) + 90%);}
 }
 
 @-webkit-keyframes mymove18 /*Safari and Chrome*/
@@ -238,14 +244,16 @@ width: 15px;
 height: 50px; 
 background: red;  
 position:relative;
-animation:mymove19 1s 1;
+animation:mymove19 41s 1;
 -webkit-animation:mymove19 41s 1; /*Safari and Chrome*/
 animation-fill-mode:forwards;
 }
 
 @keyframes mymove19
 {
- 100% {left:var(--left19);bottom: 300;}
+    0% {left: var(--left19);bottom:calc(var(--bottom) + 62.5%);}
+    50% {left: var(--left19);bottom:calc(var(--bottom) + 62.5%);}
+ 100% {left: var(--left19);bottom:calc(var(--bottom) + 110%);}
 }
 
 @-webkit-keyframes mymove19 /*Safari and Chrome*/
@@ -260,14 +268,16 @@ width: 15px;
 height: 50px; 
 background: red;  
 position:relative;
-animation:mymove20 1s 1;
+animation:mymove20 43s 1;
 -webkit-animation:mymove20 43s 1; /*Safari and Chrome*/
 animation-fill-mode:forwards;
 }
 
 @keyframes mymove20
 {
- 100% {left:var(--left16);bottom: ;}
+    0% {left: var(--left20);bottom:calc(var(--bottom) + 75%);}
+    50% {left: var(--left20);bottom:calc(var(--bottom) + 75%);}
+ 100% {left: var(--left20);bottom:calc(var(--bottom) + 130%);}
 }
 
 @-webkit-keyframes mymove20 /*Safari and Chrome*/
@@ -282,14 +292,16 @@ width: 15px;
 height: 50px; 
 background: red;  
 position:relative;
-animation:mymove21 1s 1;
+animation:mymove21 45s 1;
 -webkit-animation:mymove21 45s 1; /*Safari and Chrome*/
 animation-fill-mode:forwards;
 }
 
 @keyframes mymove21
 {
- 100% {left:var(--left21);bottom: 300;}
+    0% {left: var(--left21);bottom:calc(var(--bottom) + 87.5%);}
+    50% {left: var(--left21);bottom:calc(var(--bottom) + 87.5%);}
+ 100% {left: var(--left21);bottom:calc(var(--bottom) + 150%);}
 }
 
 @-webkit-keyframes mymove21 /*Safari and Chrome*/
@@ -304,14 +316,16 @@ width: 15px;
 height: 50px; 
 background: red;  
 position:relative;
-animation:mymove22 1s 1;
+animation:mymove22 47s 1;
 -webkit-animation:mymove22 47s 1; /*Safari and Chrome*/
 animation-fill-mode:forwards;
 }
 
 @keyframes mymove22
 {
- 100% {left:var(--left22);bottom: 300;}
+    0% {left: var(--left22);bottom:calc(var(--bottom) + 100%);}
+    50% {left: var(--left22);bottom:calc(var(--bottom) + 100%);}
+ 100% {left: var(--left22);bottom:calc(var(--bottom) + 170%);}
 }
 
 @-webkit-keyframes mymove22 /*Safari and Chrome*/
@@ -327,14 +341,14 @@ width: 15px;
 height: 110px; 
 background: red;  
 position:relative;
-animation:mymove16 1s 1;
+animation:mymove16 49s 1;
 -webkit-animation:mymove16 49s 1; /*Safari and Chrome*/
 animation-fill-mode:forwards;
 }
 
 @keyframes mymove16
 {
- 100% {left:var(--left16);bottom: 300;}
+    100% {left: var(--left16);bottom:440px;}
 }
 
 @-webkit-keyframes mymove16 /*Safari and Chrome*/
@@ -351,14 +365,15 @@ animation-fill-mode:forwards;
 height: 50px; 
 background: green;  
 position:relative;
-animation:mymove15 1s 1;
+animation:mymove15 15s 1;
 -webkit-animation:mymove15 15s 1; /*Safari and Chrome*/
 animation-fill-mode:forwards;
 }
 
 @keyframes mymove15
 {
- 100% {left:var(--left15);bottom:var(--bottom);}
+    0% {left: var(--left15);bottom:150%;}
+ 100% {left: var(--left15);bottom:var(--bottom);}
 }
 
 @-webkit-keyframes mymove15 /*Safari and Chrome*/
@@ -372,14 +387,15 @@ animation-fill-mode:forwards;
 height: 50px; 
 background: green;  
 position:relative;
-animation:mymove14 1s 1;
+animation:mymove14 13s 1;
 -webkit-animation:mymove14 13s 1; /*Safari and Chrome*/
 animation-fill-mode:forwards;
 }
 
 @keyframes mymove14
 {
- 100% {left:var(--left14);bottom:var(--bottom);}
+    0% {left: var(--left14);bottom:137.5%;}
+ 100% {left: var(--left14);bottom:var(--bottom);}
 }
 
 @-webkit-keyframes mymove14 /*Safari and Chrome*/
@@ -393,14 +409,15 @@ animation-fill-mode:forwards;
 height: 50px; 
 background: green;  
 position:relative;
-animation:mymove13 1s 1;
+animation:mymove13 11s 1;
 -webkit-animation:mymove13 11s 1; /*Safari and Chrome*/
 animation-fill-mode:forwards;
 }
 
 @keyframes mymove13
 {
- 100% {left:var(--left13);bottom:var(--bottom);}
+    0% {left: var(--left13);bottom:125%;}
+ 100% {left: var(--left13);bottom:var(--bottom);}
 }
 
 @-webkit-keyframes mymove13 /*Safari and Chrome*/
@@ -414,14 +431,15 @@ animation-fill-mode:forwards;
 height: 50px; 
 background: green;  
 position:relative;
-animation:mymove12 1s 1;
+animation:mymove12 9s 1;
 -webkit-animation:mymove12 9s 1; /*Safari and Chrome*/
 animation-fill-mode:forwards;
 }
 
 @keyframes mymove12
 {
- 100% {left:var(--left12);bottom:var(--bottom);}
+    0% {left: var(--left12);bottom:112.5%;}
+ 100% {left: var(--left12);bottom:var(--bottom);}
 }
 
 @-webkit-keyframes mymove12 /*Safari and Chrome*/
@@ -435,14 +453,15 @@ animation-fill-mode:forwards;
 height: 50px; 
 background: green;  
 position:relative;
-animation:mymove11 5s 1;
+animation:mymove11 7s 1;
 -webkit-animation:mymove11 7s 1; /*Safari and Chrome*/
 animation-fill-mode:forwards;
 }
 
 @keyframes mymove11
 {
- 100% {left:var(--left11);bottom:var(--bottom);}
+    0% {left: var(--left11);bottom:100%;}
+ 100% {left: var(--left11);bottom: var(--bottom);}
 }
 
 @-webkit-keyframes mymove11 /*Safari and Chrome*/
@@ -456,14 +475,15 @@ animation-fill-mode:forwards;
 height: 50px; 
 background: green;  
 position:relative;
-animation:mymove10 3s 1;
+animation:mymove10 5s 1;
 -webkit-animation:mymove10 5s 1; /*Safari and Chrome*/
 animation-fill-mode:forwards;
 }
 
 @keyframes mymove10
 {
- 100% {left:var(--left10);bottom:var(--bottom);}
+    0% {left: var(--left10);bottom: 87.5%;}
+ 100% {left: var(--left10);bottom:var(--bottom);}
 }
 
 @-webkit-keyframes mymove10 /*Safari and Chrome*/
@@ -476,14 +496,15 @@ animation-fill-mode:forwards;
 height: 50px; 
 background: green;  
 position:relative;
-animation:mymove9 1s 1;
+animation:mymove9 2s 1;
 -webkit-animation:mymove9 2s 1; /*Safari and Chrome*/
 animation-fill-mode:forwards;
 }
 
 @keyframes mymove9
 {
- 100% {left:var(--left9);bottom:var(--bottom);}
+    0% {left: var(--left9);top:75%;}
+ 100% {left: var(--left9);bottom: var(--bottom);}
 }
 
 @-webkit-keyframes mymove9 /*Safari and Chrome*/
@@ -528,6 +549,8 @@ $(function(){
         <tr>
             <td>实战</td> 
             <td>长虹没有固定的长度，但需相对于前几天K线较长</td>
-            <td>第档长虹本身具有支撑，可设置跌破止损</td>
+            <td>低档长虹本身具有支撑，可设置跌破止损</td>
         </tr>
     </table>
+
+    
