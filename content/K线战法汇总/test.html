@@ -1,0 +1,556 @@
+---
+desc: 由 genpost (https://github.com/hidevopsio/genpost) 代码生成器生成
+title: test
+date: 2019-09-11T13:45:57+08:00
+author: Aiden
+draft: false
+tags:
+- 高档长虹
+---
+
+<table>
+    <caption>长虹</caption>
+    <tr>
+        <th>看多</th>
+        <td>基本K线</td>
+        <th>底部信号</th>
+    </tr>
+</table>
+
+
+<html>
+
+<body>
+<div class="div">
+<div class="k1"></div>
+<div class="k9"></div>
+
+
+<div class="k10"></div>
+<div class="k11"></div>
+<div class="k12"></div>
+<div class="k13"></div>
+<div class="k14"></div>
+<div class="k15"></div>
+<div class="dhk4" style="font-size: 20px;
+text-shadow: 5px 5px 5px white, 0px 0px 2px burlywood; 
+color: wheat;">一段下跌</div>
+
+<div class="k16"></div> 
+
+<div class="k17"></div>
+<div class="k18"></div>
+<div class="k19"></div>
+<div class="k20"></div>
+<div class="k21"></div>
+<div class="k22"></div>
+<div class="dhk1" style="font-size: 20px;
+text-shadow: 5px 5px 5px burlywood, 0px 0px 2px burlywood; 
+color: red;">低档长虹</div>
+<div class="dhk2" style="font-size: 20px;
+text-shadow: 5px 5px 5px burlywood, 0px 0px 2px burlywood; 
+color: red;">底部具有支撑</div>
+<div class="dhk3" style="font-size: 20px;
+text-shadow: 5px 5px 5px burlywood, 0px 0px 2px burlywood; 
+color: beige;">多头反攻</div>
+
+
+
+</div>
+</body>
+
+<head>    
+<meta charset="utf-8" />
+<title>
+
+</title>
+<style>
+.div{ position:relative;width:100%;height:400px; 
+border:1px solid #000} 
+
+:root{
+    --bottom: 75%;
+    --left:-30%;
+    --x:5%;
+    
+    
+    --left9:calc(var(--left) + (9 * var(--x)));
+    --left10:calc(var(--left) + (10 * var(--x)));
+    --left11:calc(var(--left) + (11 * var(--x)));
+    --left12:calc(var(--left) + (12 * var(--x)));
+    --left13:calc(var(--left) + (13 * var(--x)));
+    --left14:calc(var(--left) + (14 * var(--x)));
+    --left15:calc(var(--left) + (15 * var(--x)));
+    --left_dhk4:calc(var(--left_dhk2) + 33%);
+
+    --left16:calc(var(--left) + (16 * var(--x)));
+
+    --left22:calc(var(--left) + (22 * var(--x)));
+    --left21:calc(var(--left) + (21 * var(--x)));
+    --left20:calc(var(--left) + (20 * var(--x)));
+    --left19:calc(var(--left) + (19 * var(--x)));
+    --left18:calc(var(--left) + (18 * var(--x)));
+    --left17:calc(var(--left) + (17 * var(--x)));
+
+    --left_dhk1:var(--left16)
+    
+}
+
+.dhk3{ /*多头反攻*/
+width: 40px;   
+height: 50px; 
+background: red;  
+position:relative;
+animation:mymove_dhk3 40s 1;
+-webkit-animation:mymove_dhk3 40s 1; /*Safari and Chrome*/
+animation-fill-mode:forwards;
+}
+
+@keyframes mymove_dhk3
+{
+    0% {left: calc(var(--left22) + 5%);bottom:825px;}  
+ 60% {left: calc(var(--left22) + 5%);bottom:825px;}
+ 80% {left: calc(var(--left17));bottom:900px;}  
+
+ 100% {left: calc(var(--left22) + 4%);bottom:1100px;}
+}
+
+@-webkit-keyframes mymove_dhk3 /*Safari and Chrome*/
+{
+ 0% {left: calc(var(--left22) + 5%);bottom:825px;}  
+ 60% {left: calc(var(--left22) + 5%);bottom:825px;}
+ 80% {left: calc(var(--left17));bottom:900px;}  
+
+ 100% {left: calc(var(--left22) + 4%);bottom:1100px;}
+}
+
+.dhk2{ /*底部具有支撑*/
+width: 120px;   
+height: 28px; 
+background: yellow;  
+position:relative;
+animation:mymove_dhk2 60s 1;
+-webkit-animation:mymove_dhk2 60s 1; /*Safari and Chrome*/
+animation-fill-mode:forwards;
+}
+
+@keyframes mymove_dhk2
+{
+    100% {left: calc(var(--left13) + 2%);bottom:780px;}
+}
+
+@-webkit-keyframes mymove_dhk2 /*Safari and Chrome*/
+{
+    
+ 100% {left: calc(var(--left13) + 2%);bottom:780px;}
+}
+
+.dhk1{ /*低档长虹*/
+width: 40px;   
+height: 50px; 
+background: yellow;  
+position:relative;
+animation:mymove_dhk1 52s 1;
+-webkit-animation:mymove_dhk1 52s 1; /*Safari and Chrome*/
+animation-fill-mode:forwards;
+}
+
+@keyframes mymove_dhk1
+{
+0%{left: var(--left9);}
+100% {left: calc(var(--left_dhk1) - 5%);bottom:900px;}
+}
+
+@-webkit-keyframes mymove_dhk1 /*Safari and Chrome*/
+{
+    
+ 100% {left: calc(var(--left_dhk1) - 5%);bottom:900px;}
+}
+
+.dhk4{ /*一段下跌*/
+width: 110px;   
+height: 30px; 
+background: green;  
+clip-path: polygon(0% 0%, 75% 0%, 75% 25%, 100% 0%, 75% 55%, 75% 100%, 0% 100%);
+-webkit-clip-path: polygon(0% 0%, 75% 0%, 75% 25%, 100% 0%, 75% 55%, 75% 100%, 0% 100%);
+position:relative;
+animation:mymove_dhk4 15s 1;
+-webkit-animation:mymove_dhk4 15s 1; /*Safari and Chrome*/
+animation-fill-mode:forwards;
+}
+
+@keyframes mymove_dhk4
+{
+    0%{left: var(--left9);bottom: 570px;}
+ 100% {left: calc(var(--left11) - 5%);bottom:340px;}
+}
+
+@-webkit-keyframes mymove_dhk4 /*Safari and Chrome*/
+{
+    0%{left: var(--left9);bottom: 570px;}
+ 100% {left: calc(var(--left11) - 5%);bottom:340px;}
+}
+
+.k17{ /*25、25、50*/
+width: 15px;   
+height: 50px; 
+background: red;  
+position:relative;
+animation:mymove17 37s 1;
+-webkit-animation:mymove17 37s 1; /*Safari and Chrome*/
+animation-fill-mode:forwards;
+}
+
+@keyframes mymove17
+{
+    0% {left: var(--left17);bottom:calc(var(--bottom) + 37.5%);}
+    50% {left: var(--left17);bottom:calc(var(--bottom) + 37.5%);}
+ 100% {left: var(--left17);bottom:calc(var(--bottom) + 70%);}
+}
+
+@-webkit-keyframes mymove17 /*Safari and Chrome*/
+{
+    0% {left: var(--left17);bottom:calc(var(--bottom) + 37.5%);}
+    50% {left: var(--left17);bottom:calc(var(--bottom) + 37.5%);}
+ 100% {left: var(--left17);bottom:calc(var(--bottom) + 70%);}
+}
+
+.k18{ /*25、25、50*/
+width: 15px;   
+height: 50px; 
+background: red;  
+position:relative;
+animation:mymove18 39s 1;
+-webkit-animation:mymove18 39s 1; /*Safari and Chrome*/
+animation-fill-mode:forwards;
+}
+
+@keyframes mymove18
+{
+    0% {left: var(--left18);bottom:calc(var(--bottom) + 50%);}
+    50% {left: var(--left18);bottom:calc(var(--bottom) + 50%);}
+ 100% {left: var(--left18);bottom:calc(var(--bottom) + 90%);}
+}
+
+@-webkit-keyframes mymove18 /*Safari and Chrome*/
+{
+    0% {left: var(--left18);bottom:calc(var(--bottom) + 50%);}
+    50% {left: var(--left18);bottom:calc(var(--bottom) + 50%);}
+ 100% {left: var(--left18);bottom:calc(var(--bottom) + 90%);}
+}
+
+.k19{ /*25、25、50*/
+width: 15px;   
+height: 50px; 
+background: red;  
+position:relative;
+animation:mymove19 41s 1;
+-webkit-animation:mymove19 41s 1; /*Safari and Chrome*/
+animation-fill-mode:forwards;
+}
+
+@keyframes mymove19
+{
+    0% {left: var(--left19);bottom:calc(var(--bottom) + 62.5%);}
+    50% {left: var(--left19);bottom:calc(var(--bottom) + 62.5%);}
+ 100% {left: var(--left19);bottom:calc(var(--bottom) + 110%);}
+}
+
+@-webkit-keyframes mymove19 /*Safari and Chrome*/
+{
+    0% {left: var(--left19);bottom:calc(var(--bottom) + 62.5%);}
+    50% {left: var(--left19);bottom:calc(var(--bottom) + 62.5%);}
+ 100% {left: var(--left19);bottom:calc(var(--bottom) + 110%);}
+}
+
+.k20{ /*25、25、50*/
+width: 15px;   
+height: 50px; 
+background: red;  
+position:relative;
+animation:mymove20 43s 1;
+-webkit-animation:mymove20 43s 1; /*Safari and Chrome*/
+animation-fill-mode:forwards;
+}
+
+@keyframes mymove20
+{
+    0% {left: var(--left20);bottom:calc(var(--bottom) + 75%);}
+    50% {left: var(--left20);bottom:calc(var(--bottom) + 75%);}
+ 100% {left: var(--left20);bottom:calc(var(--bottom) + 130%);}
+}
+
+@-webkit-keyframes mymove20 /*Safari and Chrome*/
+{
+    0% {left: var(--left20);bottom:calc(var(--bottom) + 75%);}
+    50% {left: var(--left20);bottom:calc(var(--bottom) + 75%);}
+ 100% {left: var(--left20);bottom:calc(var(--bottom) + 130%);}
+}
+
+.k21{ /*25、25、50*/
+width: 15px;   
+height: 50px; 
+background: red;  
+position:relative;
+animation:mymove21 45s 1;
+-webkit-animation:mymove21 45s 1; /*Safari and Chrome*/
+animation-fill-mode:forwards;
+}
+
+@keyframes mymove21
+{
+    0% {left: var(--left21);bottom:calc(var(--bottom) + 87.5%);}
+    50% {left: var(--left21);bottom:calc(var(--bottom) + 87.5%);}
+ 100% {left: var(--left21);bottom:calc(var(--bottom) + 150%);}
+}
+
+@-webkit-keyframes mymove21 /*Safari and Chrome*/
+{
+    0% {left: var(--left21);bottom:calc(var(--bottom) + 87.5%);}
+    50% {left: var(--left21);bottom:calc(var(--bottom) + 87.5%);}
+ 100% {left: var(--left21);bottom:calc(var(--bottom) + 150%);}
+}
+
+.k22{ /*25、25、50*/
+width: 15px;   
+height: 50px; 
+background: red;  
+position:relative;
+animation:mymove22 47s 1;
+-webkit-animation:mymove22 47s 1; /*Safari and Chrome*/
+animation-fill-mode:forwards;
+}
+
+@keyframes mymove22
+{
+    0% {left: var(--left22);bottom:calc(var(--bottom) + 100%);}
+    50% {left: var(--left22);bottom:calc(var(--bottom) + 100%);}
+ 100% {left: var(--left22);bottom:calc(var(--bottom) + 170%);}
+}
+
+@-webkit-keyframes mymove22 /*Safari and Chrome*/
+{
+    0% {left: var(--left22);bottom:calc(var(--bottom) + 100%);}
+    50% {left: var(--left22);bottom:calc(var(--bottom) + 100%);}
+ 100% {left: var(--left22);bottom:calc(var(--bottom) + 170%);}
+}
+
+
+.k16{ /*25、25、50*/
+width: 15px;   
+height: 110px; 
+background: red;  
+position:relative;
+animation:mymove16 49s 1;
+-webkit-animation:mymove16 49s 1; /*Safari and Chrome*/
+animation-fill-mode:forwards;
+}
+
+@keyframes mymove16
+{
+    100% {left: var(--left16);bottom:440px;}
+}
+
+@-webkit-keyframes mymove16 /*Safari and Chrome*/
+{
+ 100% {left: var(--left16);bottom:440px;}
+}
+
+
+
+
+
+.k15{ /*25、25、50*/
+    width: 15px;   
+height: 50px; 
+background: green;  
+position:relative;
+animation:mymove15 15s 1;
+-webkit-animation:mymove15 15s 1; /*Safari and Chrome*/
+animation-fill-mode:forwards;
+}
+
+@keyframes mymove15
+{
+    0% {left: var(--left15);bottom:150%;}
+ 100% {left: var(--left15);bottom:var(--bottom);}
+}
+
+@-webkit-keyframes mymove15 /*Safari and Chrome*/
+{
+0% {left: var(--left15);bottom:150%;}
+ 100% {left: var(--left15);bottom:var(--bottom);}
+}
+
+.k14{ /*0、75、25*/
+    width: 15px;   
+height: 50px; 
+background: green;  
+position:relative;
+animation:mymove14 13s 1;
+-webkit-animation:mymove14 13s 1; /*Safari and Chrome*/
+animation-fill-mode:forwards;
+}
+
+@keyframes mymove14
+{
+    0% {left: var(--left14);bottom:137.5%;}
+ 100% {left: var(--left14);bottom:var(--bottom);}
+}
+
+@-webkit-keyframes mymove14 /*Safari and Chrome*/
+{
+0% {left: var(--left14);bottom:137.5%;}
+ 100% {left: var(--left14);bottom:var(--bottom);}
+}
+
+.k13{ /*65、20、15*/
+    width: 15px;   
+height: 50px; 
+background: green;  
+position:relative;
+animation:mymove13 11s 1;
+-webkit-animation:mymove13 11s 1; /*Safari and Chrome*/
+animation-fill-mode:forwards;
+}
+
+@keyframes mymove13
+{
+    0% {left: var(--left13);bottom:125%;}
+ 100% {left: var(--left13);bottom:var(--bottom);}
+}
+
+@-webkit-keyframes mymove13 /*Safari and Chrome*/
+{
+0% {left: var(--left13);bottom:125%;}
+ 100% {left: var(--left13);bottom:var(--bottom);}
+}
+
+.k12{ /*40、20、40*/
+    width: 15px;   
+height: 50px; 
+background: green;  
+position:relative;
+animation:mymove12 9s 1;
+-webkit-animation:mymove12 9s 1; /*Safari and Chrome*/
+animation-fill-mode:forwards;
+}
+
+@keyframes mymove12
+{
+    0% {left: var(--left12);bottom:112.5%;}
+ 100% {left: var(--left12);bottom:var(--bottom);}
+}
+
+@-webkit-keyframes mymove12 /*Safari and Chrome*/
+{
+0% {left: var(--left12);bottom:112.5%;}
+ 100% {left: var(--left12);bottom:var(--bottom);}
+}
+
+.k11{ /*15、70、15*/
+    width: 15px;   
+height: 50px; 
+background: green;  
+position:relative;
+animation:mymove11 7s 1;
+-webkit-animation:mymove11 7s 1; /*Safari and Chrome*/
+animation-fill-mode:forwards;
+}
+
+@keyframes mymove11
+{
+    0% {left: var(--left11);bottom:100%;}
+ 100% {left: var(--left11);bottom: var(--bottom);}
+}
+
+@-webkit-keyframes mymove11 /*Safari and Chrome*/
+{
+    0% {left: var(--left11);bottom:100%;}
+ 100% {left: var(--left11);bottom: var(--bottom);}
+}
+
+.k10{ /*25、25、50*/
+    width: 15px;   
+height: 50px; 
+background: green;  
+position:relative;
+animation:mymove10 5s 1;
+-webkit-animation:mymove10 5s 1; /*Safari and Chrome*/
+animation-fill-mode:forwards;
+}
+
+@keyframes mymove10
+{
+    0% {left: var(--left10);bottom: 87.5%;}
+ 100% {left: var(--left10);bottom:var(--bottom);}
+}
+
+@-webkit-keyframes mymove10 /*Safari and Chrome*/
+{0% {left: var(--left10);bottom: 87.5%;}
+ 100% {left: var(--left10);bottom:var(--bottom);}
+}
+
+.k9{ /*15、70、15*/
+    width: 15px;   
+height: 50px; 
+background: green;  
+position:relative;
+animation:mymove9 2s 1;
+-webkit-animation:mymove9 2s 1; /*Safari and Chrome*/
+animation-fill-mode:forwards;
+}
+
+@keyframes mymove9
+{
+    0% {left: var(--left9);top:75%;}
+ 100% {left: var(--left9);bottom: var(--bottom);}
+}
+
+@-webkit-keyframes mymove9 /*Safari and Chrome*/
+{
+0% {left: var(--left9);top:75%;}
+ 100% {left: var(--left9);bottom: var(--bottom);}
+}
+
+
+
+.k1{ /*0、70、30*/
+    width: 1px;   
+height: 300px; 
+background:white;  
+position: relative;
+
+}
+
+</style>
+<script type="text/javascript" src = "jQuery/jquery-1.12.4.min.js"></script>
+<script type="text/javascript">
+$(function(){
+    function resizeCanvas(){
+    $('canvas').attr('width',$(window).get(0).innerWidth);
+    $('canvas').attr('height',$(window).get(0).innerWidth);
+    $('canvas').fillRect(0,0,$('canvas').width(),$('canvas').height());
+};
+    resizeCanvas();
+})
+</script>
+</head>
+</html>
+
+<table>
+        <caption>要点</caption>
+        <tr>
+            <th>标准</th>
+            <th>1、经过一段下跌</th>
+            <th>2、开高收低，无上下影线</th>
+            <th>3、多头取得决定性胜利</th>
+        </tr>
+        <tr>
+            <td>实战</td> 
+            <td>长虹没有固定的长度，但需相对于前几天K线较长</td>
+            <td>低档长虹本身具有支撑，可设置跌破止损</td>
+        </tr>
+    </table>
+
+    
