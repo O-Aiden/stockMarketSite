@@ -32,6 +32,20 @@ tags:
 	<script type="text/javascript">
 		var canvas = document.getElementById("canvas");
 		var context = canvas.getContext("2d");
+
+		//自适应屏幕
+		canvas.width = document.documentElement.clientWidth;
+		canvas.height = document.documentElement.clientHeight;	
+		
+		canvas.width = screen.availWidth;
+		canvas.height = screen.availHeight;
+
+		canvas.width = screen.width;
+		canvas.height = screen.height;
+
+		canvas.width = window.innerWidth;
+		canvas.height = window.innerHeight;
+		
 		 //水平标尺与canvas的距离
 		var HORIZONTAL_AXIS_MARGIN = 50;
 		 //竖直标尺与canvas的距离
