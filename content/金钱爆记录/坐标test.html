@@ -22,7 +22,12 @@ tags:
 	</head>
  
 	<body>
-		<canvas id="canvas" width="800" height="600"></canvas>
+        <canvas id="canvas" width="800" height="600"></canvas>
+        <button type="button"  onclick="javascript:huaShiXian(0,35,35,0)">线一</button>
+        <button type="button"  onclick="javascript:huaShiXian(0,50,50,0)">线二</button>
+        <button type="button"  onclick="javascript:huaXuXian(0,0,10,10)">线三</button>
+        <button type="button"  onclick="javascript:huaXian(0,0,25,25,'red',2,8)">线四</button>
+
 	</body>
 	<script type="text/javascript">
 		var canvas = document.getElementById("canvas");
@@ -53,21 +58,39 @@ tags:
 		var TICK_WIDTH = 10;
 		 //标牌和坐标轴之间的距离
 		var SPACE_BETWEEN_ABELS_AND_AXIS = 20;
- 
-		function drawAxes() {
+        
+
+        function drawAxes() {
 			context.save();
 			context.lineWidth = 1.0;
 			context.fillStyle = "rgba(100, 140, 230, 0.8)";
 			context.strokeStyle = "navy";
 			drawHorizontalAxis();
 			drawVerticalAxis();
-			context.lineWidth = 0.5;
+
+            context.lineWidth = 0.5;
 			context.strokeStyle = "navy";
 			context.strokeStyle = "darkred";
 			drawVerticalAxisTicks();
 			drawHorizontalAxisTicks();
 			context.restore();
-		}
+        }
+
+
+    
+
+//延时画线,e:延时时间
+function yanShiHuaXian(a,b,c,d,yanShi){
+    var t=null;    //初始化定时器
+	//e/10毫秒执行一次
+	t=setInterval(function(){	
+	//context.clearRect(0,0,context.width,context.height);	//每次清空上次画布
+    huaShiXian(a,b,c,d);		
+	},yanShi)    
+}
+	
+
+
 			//绘制水平的小标
  
 		function drawHorizontalAxisTicks() {
@@ -113,6 +136,48 @@ tags:
 			context.lineTo(AXIS_ORIGIN.x, AXIS_TOP);
 			context.stroke();
 		}
+
+
+
+//drawXieAxis(550,550,50,50)
+        //画实线
+		function huaShiXian(a,b,c,d) {
+			context.beginPath();
+			context.moveTo((a/5 + 1)*50, (11 - b/5)*50);
+			context.lineTo((c/5 + 1)*50, (11 - d/5)*50);
+			context.stroke();
+		}
+
+        //画虚线,abcd为坐标，e为颜色
+		function huaXuXian(a,b,c,d) {
+            // 设置线宽
+            context.lineWidth = 4;
+            // 设置间距（参数为无限数组，虚线的样式会随数组循环）
+            context.setLineDash([8, 8]);
+			context.beginPath();
+			context.moveTo((a/5 + 1)*50, (11 - b/5)*50);
+			context.lineTo((c/5 + 1)*50, (11 - d/5)*50);
+            // 填充颜色
+            context.strokeStyle="red";
+			context.stroke();
+		}
+
+                //画虚线,abcd为坐标，color为颜色,e为线宽,f调虚线
+		function huaXian(a,b,c,d,color,xianKuan,xuXian) {
+            // 设置线宽
+            if(!xianKuan){xianKuan=2}
+            context.lineWidth = xianKuan;
+            // 设置间距（参数为无限数组，虚线的样式会随数组循环）
+            if(!xuXian){xuXian=8}
+            context.setLineDash([xuXian, xuXian]);
+			context.beginPath();
+			context.moveTo((a/5 + 1)*50, (11 - b/5)*50);
+			context.lineTo((c/5 + 1)*50, (11 - d/5)*50);
+            // 填充颜色
+            if(!color){color="black"}
+            context.strokeStyle=color;
+			context.stroke();
+		}
 		
 		//画水平线
 		function drawHorizontalAxis() {
@@ -125,6 +190,8 @@ tags:
 		function drawAxisLabels() {
 			context.fillStyle = "blue";
 			drawHorizontalAxisLabels();
+            //🥿
+            xieZi('金钱爆',10,50)
 			drawVerticalAxisLabels();
 		}
 			//绘制竖直轴标注
@@ -140,6 +207,19 @@ tags:
 				}
 			}
 		}
+
+
+
+            //写字,c:需要备注的字，a:横坐标,b:纵坐标,
+            function xieZi(c,a,b) {
+                var c;
+                var a;
+                var b;
+                context.fillText(c,
+						AXIS_ORIGIN.x - SPACE_BETWEEN_ABELS_AND_AXIS + a * 10,
+						AXIS_ORIGIN.y - 0 * VERTICAL_TICK_SPACING + -b * 10);
+		}
+
 			//绘制水平轴标注
  
 		function drawHorizontalAxisLabels() {
