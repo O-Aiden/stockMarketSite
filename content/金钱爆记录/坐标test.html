@@ -1,4 +1,3 @@
-
 ---
 desc: 由 genpost (https://github.com/hidevopsio/genpost) 代码生成器生成
 title: 坐标test
@@ -10,277 +9,347 @@ tags:
 ---
 <!DOCTYPE html>
 <html>
- 
-	<head>
-		<meta charset="utf-8">
-		<title></title>
-		<style type="text/css">
-			#canvas {
-				border: thin solid red;
-			}
-		</style>
-	</head>
- 
-	<body>
-        <canvas id="canvas" width="800" height="600"></canvas>
-        <button type="button"  onclick="javascript:huaShiXian(0,35,35,0)">线一</button>
-        <button type="button"  onclick="javascript:huaShiXian(0,50,50,0)">线二</button>
-        <button type="button"  onclick="javascript:huaXuXian(0,0,10,10)">线三</button>
-        <button type="button"  onclick="javascript:huaXian(0,0,25,25,'red',2,8)">线四</button>
 
-	</body>
-	<script type="text/javascript">
-		var canvas = document.getElementById("canvas");
-		var context = canvas.getContext("2d");
-		/*
-		//自适应屏幕
-		canvas.width = document.documentElement.clientWidth;
-		canvas.height = document.documentElement.clientHeight;	
-		
-		canvas.width = screen.availWidth;
-		canvas.height = screen.availHeight;
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<style type="text/css">
+		#canvas {
+			border: thin solid red;
+		}
+	</style>
+</head>
 
-		canvas.width = screen.width;
-		canvas.height = screen.height;
+<body>
+	<canvas id="canvas" width="800" height="600"></canvas>
+	<!--
+	<button type="button" onclick="javascript:huaShiXian(0,35,35,0)">线一</button>
+	<button type="button" onclick="javascript:huaShiXian(0,50,50,0)">线二</button>
+	<button type="button" onclick="javascript:huaXuXian(0,0,10,10)">线三</button>
+	<button type="button" onclick="javascript:huaXian(0,0,25,25,'red',2,8)">线四</button>
+	-->
 
-		canvas.width = window.innerWidth;
-		canvas.height = window.innerHeight;
-		*/
-		
-		 //水平标尺与canvas的距离
-		var HORIZONTAL_AXIS_MARGIN = 50;
-		 //竖直标尺与canvas的距离
-		var VERTICAL_AXIS_MARGIN = 50;
-		 //标尺起点
-		var AXIS_ORIGIN = {
-			x: HORIZONTAL_AXIS_MARGIN,
-			y: canvas.height - VERTICAL_AXIS_MARGIN
-		};
-		 //坐标的顶部
-		var AXIS_TOP = VERTICAL_AXIS_MARGIN;
-		 //坐标的长度
-		var AXIS_RIGHT = canvas.width - HORIZONTAL_AXIS_MARGIN;
-		 //小标记的间隔
-		var HORIZONTAL_TICK_SPACING = 10;
-		var VERTICAL_TICK_SPACING = 10;
-		 //坐标标记的范围
-		var AXIS_WIDTH = AXIS_RIGHT - AXIS_ORIGIN.x;
-		var AXIS_HEIGHT = AXIS_ORIGIN.y - AXIS_TOP;
-		 //纵向标记数值
-		var NUM_VERTICAL_TICKS = AXIS_HEIGHT / VERTICAL_TICK_SPACING;
-		 //横向标记数值
-		var NUM_HORIZONTAL_TICKS = AXIS_WIDTH / HORIZONTAL_TICK_SPACING;
-		var TICK_WIDTH = 10;
-		 //标牌和坐标轴之间的距离
-		var SPACE_BETWEEN_ABELS_AND_AXIS = 20;
-        
-
-        function drawAxes() {
-			context.save();
-			context.lineWidth = 1.0;
-			context.fillStyle = "rgba(100, 140, 230, 0.8)";
-			context.strokeStyle = "navy";
-			drawHorizontalAxis();
-			drawVerticalAxis();
-
-            context.lineWidth = 0.5;
-			context.strokeStyle = "navy";
-			context.strokeStyle = "darkred";
-			drawVerticalAxisTicks();
-			drawHorizontalAxisTicks();
-			context.restore();
-        }
-
-
-    
-
-//延时画线,e:延时时间
-function yanShiHuaXian(a,b,c,d,yanShi){
-    var t=null;    //初始化定时器
-	//e/10毫秒执行一次
-	t=setInterval(function(){	
-	//context.clearRect(0,0,context.width,context.height);	//每次清空上次画布
-    huaShiXian(a,b,c,d);		
-	},yanShi)    
-}
+</body>
+<script type="text/javascript">
+	var canvas = document.getElementById("canvas");
+	var context = canvas.getContext("2d");
+	/*
+	//自适应屏幕
+	canvas.width = document.documentElement.clientWidth;
+	canvas.height = document.documentElement.clientHeight;	
 	
+	canvas.width = screen.availWidth;
+	canvas.height = screen.availHeight;
+
+	canvas.width = screen.width;
+	canvas.height = screen.height;
+
+	canvas.width = window.innerWidth;
+	canvas.height = window.innerHeight;
+	*/
+
+	//水平标尺与canvas的距离
+	var HORIZONTAL_AXIS_MARGIN = 50;
+	//竖直标尺与canvas的距离
+	var VERTICAL_AXIS_MARGIN = 50;
+	//标尺起点
+	var AXIS_ORIGIN = {
+		x: HORIZONTAL_AXIS_MARGIN,
+		y: canvas.height - VERTICAL_AXIS_MARGIN
+	};
+	//坐标的顶部
+	var AXIS_TOP = VERTICAL_AXIS_MARGIN;
+	//坐标的长度
+	var AXIS_RIGHT = canvas.width - HORIZONTAL_AXIS_MARGIN;
+	//小标记的间隔
+	var HORIZONTAL_TICK_SPACING = 10;
+	var VERTICAL_TICK_SPACING = 10;
+	//坐标标记的范围
+	var AXIS_WIDTH = AXIS_RIGHT - AXIS_ORIGIN.x;
+	var AXIS_HEIGHT = AXIS_ORIGIN.y - AXIS_TOP;
+	//纵向标记数值
+	var NUM_VERTICAL_TICKS = AXIS_HEIGHT / VERTICAL_TICK_SPACING;
+	//横向标记数值
+	var NUM_HORIZONTAL_TICKS = AXIS_WIDTH / HORIZONTAL_TICK_SPACING;
+	var TICK_WIDTH = 10;
+	//标牌和坐标轴之间的距离
+	var SPACE_BETWEEN_ABELS_AND_AXIS = 20;
 
 
-			//绘制水平的小标
- 
-		function drawHorizontalAxisTicks() {
-			var deltaY;
-			for (var i = 1; i < NUM_HORIZONTAL_TICKS; i++) {
-				context.beginPath();
-				//判断画的是大坐标还是短坐标
-				if (i % 5 == 0) {
-					deltaY = TICK_WIDTH;
-				} else {
-					deltaY = TICK_WIDTH / 2
-				}
-				context.moveTo(AXIS_ORIGIN.x + i * HORIZONTAL_TICK_SPACING,
-					AXIS_ORIGIN.y - deltaY);
-				context.lineTo(AXIS_ORIGIN.x + i * HORIZONTAL_TICK_SPACING,
-					AXIS_ORIGIN.y + deltaY);
-				context.stroke();
+
+	function drawAxes() {
+		context.save();
+		context.lineWidth = 1.0;
+		context.fillStyle = "rgba(100, 140, 230, 0.8)";
+		context.strokeStyle = "navy";
+		drawHorizontalAxis();
+		drawVerticalAxis();
+
+		context.lineWidth = 0.5;
+		context.strokeStyle = "navy";
+		context.strokeStyle = "darkred";
+		drawVerticalAxisTicks();
+		drawHorizontalAxisTicks();
+		context.restore();
+	}
+
+
+
+
+	//延时画线,e:延时时间
+	function yanShiHuaXian(a, b, c, d, yanShi) {
+		var t = null;    //初始化定时器
+		//e/10毫秒执行一次
+		t = setInterval(function () {
+			//context.clearRect(0,0,context.width,context.height);	//每次清空上次画布
+			huaShiXian(a, b, c, d);
+		}, yanShi)
+	}
+
+
+
+	//绘制水平的小标
+
+	function drawHorizontalAxisTicks() {
+		var deltaY;
+		for (var i = 1; i < NUM_HORIZONTAL_TICKS; i++) {
+			context.beginPath();
+			//判断画的是大坐标还是短坐标
+			if (i % 5 == 0) {
+				deltaY = TICK_WIDTH;
+			} else {
+				deltaY = TICK_WIDTH / 2
+			}
+			context.moveTo(AXIS_ORIGIN.x + i * HORIZONTAL_TICK_SPACING,
+				AXIS_ORIGIN.y - deltaY);
+			context.lineTo(AXIS_ORIGIN.x + i * HORIZONTAL_TICK_SPACING,
+				AXIS_ORIGIN.y + deltaY);
+			context.stroke();
+		}
+	}
+
+	//绘制数值的小标
+	function drawVerticalAxisTicks() {
+		var deltaX;
+		for (var i = 1; i < NUM_VERTICAL_TICKS; i++) {
+			context.beginPath();
+			if (i % 5 === 0) {
+				deltaX = TICK_WIDTH;
+			} else {
+				deltaX = TICK_WIDTH / 2;
+			}
+			context.moveTo(AXIS_ORIGIN.x - deltaX,
+				AXIS_ORIGIN.y - i * VERTICAL_TICK_SPACING);
+			context.lineTo(AXIS_ORIGIN.x + deltaX,
+				AXIS_ORIGIN.y - i * VERTICAL_TICK_SPACING);
+			context.stroke();
+		}
+	}
+
+	//画竖直线
+	function drawVerticalAxis() {
+		context.beginPath();
+		context.moveTo(AXIS_ORIGIN.x, AXIS_ORIGIN.y);
+		context.lineTo(AXIS_ORIGIN.x, AXIS_TOP);
+		context.stroke();
+	}
+
+
+
+	//drawXieAxis(550,550,50,50)
+	//画实线
+	function huaShiXian(a, b, c, d,color,xianKuan) {
+		// 设置线宽
+		if (!xianKuan) { xianKuan = 2 }
+		context.lineWidth = xianKuan;
+		context.beginPath();
+		context.moveTo((a / 5 + 1) * 50, (11 - b / 5) * 50);
+		context.lineTo((c / 5 + 1) * 50, (11 - d / 5) * 50);
+		// 填充颜色
+		if (!color) { color = "black" }
+		context.strokeStyle = color;
+		context.stroke();
+	}
+	/*
+
+	//画虚线,abcd为坐标，e为颜色
+	function huaXuXian(a, b, c, d) {
+		// 设置线宽
+		context.lineWidth = 4;
+		// 设置间距（参数为无限数组，虚线的样式会随数组循环）
+		context.setLineDash([8, 8]);
+		context.beginPath();
+		context.moveTo((a / 5 + 1) * 50, (11 - b / 5) * 50);
+		context.lineTo((c / 5 + 1) * 50, (11 - d / 5) * 50);
+		// 填充颜色
+		context.strokeStyle = "red";
+		context.stroke();
+	}
+	*/
+
+	//画虚线,abcd为坐标，color为颜色,e为线宽,f调虚线
+	function huaXuXian(a, b, c, d, color, xianKuan, xuXian) {
+		// 设置线宽
+		if (!xianKuan) { xianKuan = 2 }
+		context.lineWidth = xianKuan;
+		// 设置间距（参数为无限数组，虚线的样式会随数组循环）
+		if (!xuXian) {xuXian = 8}
+		else{
+		context.setLineDash([xuXian, xuXian]);
+		}
+		context.beginPath();
+		context.moveTo((a / 5 + 1) * 50, (11 - b / 5) * 50);
+		context.lineTo((c / 5 + 1) * 50, (11 - d / 5) * 50);
+		// 填充颜色
+		if (!color) { color = "black" }
+		context.strokeStyle = color;
+		context.stroke();
+	}
+
+	//画水平线
+	function drawHorizontalAxis() {
+		context.beginPath();
+		context.moveTo(AXIS_ORIGIN.x, AXIS_ORIGIN.y);
+		context.lineTo(AXIS_RIGHT, AXIS_ORIGIN.y);
+		context.stroke();
+	}
+	//绘制标注
+	function drawAxisLabels() {
+		context.fillStyle = "blue";
+		drawHorizontalAxisLabels();
+		//写字🥿
+		//xieZi('金钱爆',10,50);
+		drawVerticalAxisLabels();
+	}
+	//绘制竖直轴标注
+
+	function drawVerticalAxisLabels() {
+		context.textAlign = "center";
+		context.textBaseline = "top";
+		for (var i = 0; i <= NUM_HORIZONTAL_TICKS; i++) {
+			if (i % 5 === 0) {
+				context.fillText(i,
+					AXIS_ORIGIN.x + i * HORIZONTAL_TICK_SPACING,
+					AXIS_ORIGIN.y + SPACE_BETWEEN_ABELS_AND_AXIS);
 			}
 		}
-		
-		//绘制数值的小标
-		function drawVerticalAxisTicks() {
-			var deltaX;
-			for (var i = 1; i < NUM_VERTICAL_TICKS; i++) {
-				context.beginPath();
-				if (i % 5 === 0) {
-					deltaX = TICK_WIDTH;
-				} else {
-					deltaX = TICK_WIDTH / 2;
-				}
-				context.moveTo(AXIS_ORIGIN.x - deltaX,
+	}
+
+
+/*
+	//写字,c:需要备注的字，a:横坐标,b:纵坐标,
+	function xieZi(c, a, b) {
+		context.fillStyle = "blue";
+		context.fillText(c,
+			AXIS_ORIGIN.x - SPACE_BETWEEN_ABELS_AND_AXIS + a * 10,
+			AXIS_ORIGIN.y - 0 * VERTICAL_TICK_SPACING + -b * 10);
+	}
+	*/
+
+		//写字,c:需要备注的字，a:横坐标,b:纵坐标,
+		function xieZi(font, a, b,color) {
+		if(!color){color="blue"}
+		context.fillStyle = color;
+		context.fillText(font,
+			AXIS_ORIGIN.x - SPACE_BETWEEN_ABELS_AND_AXIS + a * 10,
+			AXIS_ORIGIN.y - 0 * VERTICAL_TICK_SPACING + -b * 10);
+	}
+
+	/**
+* 画点
+* @param point  点
+*/
+	function huaDian(a,b) {
+		context.beginPath();
+		context.moveTo((a / 5 + 1) * 50, (11 - b / 5) * 50);
+		context.lineTo((a / 5 + 1) * 50, (11 - b / 5) * 50);
+		context.stroke();
+	}
+	//huaDian(4,7);
+
+
+	//绘制水平轴标注
+
+	function drawHorizontalAxisLabels() {
+		context.textAlign = "center";
+		context.textBaseline = "middle";
+		for (var i = 0; i <= NUM_VERTICAL_TICKS; i++) {
+			if (i % 5 === 0) {
+				context.fillText(i,
+					AXIS_ORIGIN.x - SPACE_BETWEEN_ABELS_AND_AXIS,
 					AXIS_ORIGIN.y - i * VERTICAL_TICK_SPACING);
-				context.lineTo(AXIS_ORIGIN.x + deltaX,
-					AXIS_ORIGIN.y - i * VERTICAL_TICK_SPACING);
-				context.stroke();
 			}
 		}
-		
-		//画竖直线
-		function drawVerticalAxis() {
+	}
+
+	function drawGrid(color, stepx, stepy) {
+		context.save()
+		context.strokeStyle = color;
+		context.fillStyle = '#ffffff';
+		context.lineWidth = 0.5;
+		context.fillRect(0, 0, context.canvas.width, context.canvas.height);
+		for (var i = stepx + 0.5; i < context.canvas.width; i += stepx) {
 			context.beginPath();
-			context.moveTo(AXIS_ORIGIN.x, AXIS_ORIGIN.y);
-			context.lineTo(AXIS_ORIGIN.x, AXIS_TOP);
+			context.moveTo(i, 0);
+			context.lineTo(i, context.canvas.height);
 			context.stroke();
 		}
-
-
-
-//drawXieAxis(550,550,50,50)
-        //画实线
-		function huaShiXian(a,b,c,d) {
+		for (var i = stepy + 0.5; i < context.canvas.height; i += stepy) {
 			context.beginPath();
-			context.moveTo((a/5 + 1)*50, (11 - b/5)*50);
-			context.lineTo((c/5 + 1)*50, (11 - d/5)*50);
+			context.moveTo(0, i);
+			context.lineTo(context.canvas.width, i);
 			context.stroke();
 		}
+		context.restore();
+	}
+	context.font = "13px Arial";
 
-        //画虚线,abcd为坐标，e为颜色
-		function huaXuXian(a,b,c,d) {
-            // 设置线宽
-            context.lineWidth = 4;
-            // 设置间距（参数为无限数组，虚线的样式会随数组循环）
-            context.setLineDash([8, 8]);
-			context.beginPath();
-			context.moveTo((a/5 + 1)*50, (11 - b/5)*50);
-			context.lineTo((c/5 + 1)*50, (11 - d/5)*50);
-            // 填充颜色
-            context.strokeStyle="red";
-			context.stroke();
-		}
+	drawGrid("lightgray", 10, 10);
 
-                //画虚线,abcd为坐标，color为颜色,e为线宽,f调虚线
-		function huaXian(a,b,c,d,color,xianKuan,xuXian) {
-            // 设置线宽
-            if(!xianKuan){xianKuan=2}
-            context.lineWidth = xianKuan;
-            // 设置间距（参数为无限数组，虚线的样式会随数组循环）
-            if(!xuXian){xuXian=8}
-            context.setLineDash([xuXian, xuXian]);
-			context.beginPath();
-			context.moveTo((a/5 + 1)*50, (11 - b/5)*50);
-			context.lineTo((c/5 + 1)*50, (11 - d/5)*50);
-            // 填充颜色
-            if(!color){color="black"}
-            context.strokeStyle=color;
-			context.stroke();
-		}
-		
-		//画水平线
-		function drawHorizontalAxis() {
-			context.beginPath();
-			context.moveTo(AXIS_ORIGIN.x, AXIS_ORIGIN.y);
-			context.lineTo(AXIS_RIGHT, AXIS_ORIGIN.y);
-			context.stroke();
-		}
-		//绘制标注
-		function drawAxisLabels() {
-			context.fillStyle = "blue";
-			drawHorizontalAxisLabels();
-            //🥿
-            xieZi('金钱爆',10,50)
-			drawVerticalAxisLabels();
-		}
-			//绘制竖直轴标注
- 
-		function drawVerticalAxisLabels() {
-			context.textAlign = "center";
-			context.textBaseline = "top";
-			for (var i = 0; i <= NUM_HORIZONTAL_TICKS; i++) {
-				if (i % 5 === 0) {
-					context.fillText(i,
-						AXIS_ORIGIN.x + i * HORIZONTAL_TICK_SPACING,
-						AXIS_ORIGIN.y + SPACE_BETWEEN_ABELS_AND_AXIS);
-				}
-			}
-		}
+	context.shadowColor = "rgba(100, 140, 230, 0.8)";
+	context.shadowOffsetX = 3;
+	context.shadowOffsetY = 3;
+	context.shadowBlur = 5;
 
+	drawAxes();
+	drawAxisLabels();
+	xieZi('金钱爆', 10, 50);
+	//线D1
+	xieZi('D1', 50,15);
+	xieZi('⭕️(1)', 37.6, 31.2);
+	huaShiXian(15,50,50,15);
+	//线D2
+	xieZi('D2', 35,1);
+	xieZi('⭕️(2)', 20.35, 19.35);
+	huaShiXian(1,35,35,1);
+	//线D3
+	xieZi('D3', 45,10);
+	xieZi('⭕️(3)', 17, 41.55);
+	huaShiXian(10,45,45,10);
+	//线s1
+	xieZi('S1', 46,40);
+	huaShiXian(10,10,46,40);
+	//实线S2
+	xieZi('S2', 14,50);
+	huaShiXian(14,50,14,0);	
+	//虚线P1
+	xieZi('P1', 5,30.5);
+	huaXuXian(0,30.5,35.5,30.5,'red',1,3);
+	//虚线I1
+	xieZi('I1', 36.5,5);
+	huaXuXian(34.5,0,34.5,30.5,'red',1,3);
+	//虚线P2
+	xieZi('P2', 5,19);
+	huaXuXian(0,19,17,19,'red',1,3);
+	//虚线I2
+	xieZi('I2', 21,5);
+	huaXuXian(17,19,17,0,'red',1,3);
+	//虚线P3
+	xieZi('P3', 5,41,);
+	huaXuXian(0,41,14,41,'red',1,3);		
+	//虚线I3
+	xieZi('I3', 14,5);
 
+</script>
 
-            //写字,c:需要备注的字，a:横坐标,b:纵坐标,
-            function xieZi(c,a,b) {
-                var c;
-                var a;
-                var b;
-                context.fillText(c,
-						AXIS_ORIGIN.x - SPACE_BETWEEN_ABELS_AND_AXIS + a * 10,
-						AXIS_ORIGIN.y - 0 * VERTICAL_TICK_SPACING + -b * 10);
-		}
-
-			//绘制水平轴标注
- 
-		function drawHorizontalAxisLabels() {
-			context.textAlign = "center";
-			context.textBaseline = "middle";
-			for (var i = 0; i <= NUM_VERTICAL_TICKS; i++) {
-				if (i % 5 === 0) {
-					context.fillText(i,
-						AXIS_ORIGIN.x - SPACE_BETWEEN_ABELS_AND_AXIS,
-						AXIS_ORIGIN.y - i * VERTICAL_TICK_SPACING);
-				}
-			}
-		}
- 
-		function drawGrid(color, stepx, stepy) {
-			context.save()
-			context.strokeStyle = color;
-			context.fillStyle = '#ffffff';
-			context.lineWidth = 0.5;
-			context.fillRect(0, 0, context.canvas.width, context.canvas.height);
-			for (var i = stepx + 0.5; i < context.canvas.width; i += stepx) {
-				context.beginPath();
-				context.moveTo(i, 0);
-				context.lineTo(i, context.canvas.height);
-				context.stroke();
-			}
-			for (var i = stepy + 0.5; i < context.canvas.height; i += stepy) {
-				context.beginPath();
-				context.moveTo(0, i);
-				context.lineTo(context.canvas.width, i);
-				context.stroke();
-			}
-			context.restore();
-		}
-		context.font = "13px Arial";
-		
-		drawGrid("lightgray", 10, 10);
-		
-		context.shadowColor = "rgba(100, 140, 230, 0.8)";
-		context.shadowOffsetX = 3;
-		context.shadowOffsetY = 3;
-		context.shadowBlur = 5;
-		
-		drawAxes();
-		drawAxisLabels();
-	</script>
- 
 </html>
-
