@@ -36,7 +36,7 @@ tags:
 	//自适应
 	//canvas.width = document.documentElement.clientWidth;
 	//canvas.height = document.documentElement.clientHeight;
-	//canvas.width = 9000;
+	canvas.width = 1000;
 	//canvas.height = 900;
 
 	//水平标尺与canvas的距离
@@ -156,19 +156,18 @@ tags:
 		if (!xianKuan) { xianKuan = 2 }
 		context.lineWidth = xianKuan;
 		context.beginPath();
-		//context.moveTo((a / 5 + 1) * 50, (11 - b / 5) * 50);
-		//context.lineTo((c / 5 + 1) * 50, (11 - d / 5) * 50);
-		context.moveTo(AXIS_ORIGIN.x - SPACE_BETWEEN_ABELS_AND_AXIS + a * 10,
-			AXIS_ORIGIN.y - 0 * VERTICAL_TICK_SPACING + -b * 10);
-		context.lineTo(AXIS_ORIGIN.x - SPACE_BETWEEN_ABELS_AND_AXIS + c * 10,
-			AXIS_ORIGIN.y - 0 * VERTICAL_TICK_SPACING + -d * 10);
+		context.moveTo((a / 5 + 1) * 50, (11 - b / 5) * 50);
+		context.lineTo((c / 5 + 1) * 50, (11 - d / 5) * 50);
+		//context.moveTo(AXIS_ORIGIN.x - SPACE_BETWEEN_ABELS_AND_AXIS + a * 10,
+		//	AXIS_ORIGIN.y - 0 * VERTICAL_TICK_SPACING + -b * 10);
+		//context.lineTo(AXIS_ORIGIN.x - SPACE_BETWEEN_ABELS_AND_AXIS + c * 10,
+		//	AXIS_ORIGIN.y - 0 * VERTICAL_TICK_SPACING + -d * 10);
 		// 填充颜色
 		if (!color) { color = "black" }
 		context.strokeStyle = color;
 		context.stroke();
 	}
 	/*
-
 	//画虚线,abcd为坐标，e为颜色
 	function huaXuXian(a, b, c, d) {
 		// 设置线宽
@@ -195,12 +194,12 @@ tags:
 		context.setLineDash([xuXian, xuXian]);
 		}
 		context.beginPath();
-		context.moveTo(AXIS_ORIGIN.x - SPACE_BETWEEN_ABELS_AND_AXIS + a * 10,
-			AXIS_ORIGIN.y - 0 * VERTICAL_TICK_SPACING + -b * 10);
-		context.lineTo(AXIS_ORIGIN.x - SPACE_BETWEEN_ABELS_AND_AXIS + c * 10,
-			AXIS_ORIGIN.y - 0 * VERTICAL_TICK_SPACING + -d * 10);
-		//context.moveTo((a / 5 + 1) * 50, (11 - b / 5) * 50);
-		//context.lineTo((c / 5 + 1) * 50, (11 - d / 5) * 50);
+		//context.moveTo(AXIS_ORIGIN.x - SPACE_BETWEEN_ABELS_AND_AXIS + a * 10,
+		//	AXIS_ORIGIN.y - 0 * VERTICAL_TICK_SPACING + -b * 10);
+		//context.lineTo(AXIS_ORIGIN.x - SPACE_BETWEEN_ABELS_AND_AXIS + c * 10,
+		//	AXIS_ORIGIN.y - 0 * VERTICAL_TICK_SPACING + -d * 10);
+		context.moveTo((a / 5 + 1) * 50, (11 - b / 5) * 50);
+		context.lineTo((c / 5 + 1) * 50, (11 - d / 5) * 50);
 		// 填充颜色
 		if (!color) { color = "black" }
 		context.strokeStyle = color;
@@ -249,6 +248,7 @@ tags:
 
 		//写字,c:需要备注的字，a:横坐标,b:纵坐标,
 		function xieZi(font, a, b,color) {
+		//if(!maxWith){maxWith=2}
 		if(!color){color="blue"}
 		context.fillStyle = color;
 		context.fillText(font,
@@ -327,7 +327,7 @@ tags:
 	huaShiXian(15,50,50,15);
 	//线D2
 	xieZi('D2', 35,1);
-	xieZi('⭕️(2)', 20.35, 19.35);
+	xieZi('⭕️(2)', 16.8, 22.7);
 	huaShiXian(1,35,35,1);
 	//线D3
 	xieZi('D3', 45,10);
@@ -344,19 +344,58 @@ tags:
 	xieZi('P1', 5,30.5);
 	huaXuXian(0,30.5,35.5,30.5,'red',1,3);
 	//虚线I1
-	xieZi('I1', 36.5,5);
+	xieZi('I1', 35.5,7);
 	huaXuXian(34.5,0,34.5,30.5,'red',1,3);
 	//虚线P2
-	xieZi('P2', 5,19);
-	huaXuXian(0,19,17,19,'red',1,3);
+	xieZi('P2', 5,22);
+	huaXuXian(0,22,14,22,'red',1,3);
 	//虚线I2
-	xieZi('I2', 21,5);
-	huaXuXian(17,19,17,0,'red',1,3);
+	xieZi('I2', 18,5);
+	huaXuXian(14,22,14,0,'red',1,3);
 	//虚线P3
 	xieZi('P3', 5,41,);
 	huaXuXian(0,41,14,41,'red',1,3);		
 	//虚线I3
 	xieZi('I3', 14,5);
+	//备注（图上）
+	xieZi('需求曲線移動更大', 47,8,"red");
+	xieZi('財政/貨幣刺激需求曲線移回', 47,12,"red");
+	xieZi('冠状病毒造成供給曲線左移至無弾性供給', 29,52,"red");
+	//备注
+	xieZi('点(1)：正常经济下的市场均衡价格和收入(看成所对应的数量更好理解；', 74,50,"red");
+	xieZi('点(2)：被疫情影响后，供给无弹性(价格再怎么波动，但供给数量受到供应链', 75,48,"red");
+	xieZi('断裂影响中短期不变，线由S1变到S2)，需求下滑(线由D1下滑到D2)，', 77.5,46,"red");
+	xieZi('新的市场均衡价格和数量为点(2)；', 67.3,44,"red");
+	xieZi('点(3)：政府部门入市干预，发布纾困方案，通过印钞增加需求，但由于供给', 75,42,"red");
+	xieZi('仍跟不上(供给者弹性受到伤害后更难调整)，造成过多的货币追逐不足', 77,40,"red");
+	xieZi('的商品的局面，价格狂飙，即点(3)；', 67.6,38,"red");
+	xieZi('#几乎每次经济大萧条后都伴随着巨大的通胀，不管是2008年、1960年、', 74.3,36,"red");
+	xieZi('1900年，而现在，大萧条已经发生了，长期生产力和价格背离已经', 75.8,34,"red");
+	xieZi('发生很久，长期企业投资不足也已经发生很久了，所以一个超级通', 75.8,32,"red");
+	xieZi('膨的时代即将出现，而这也是黄金2020上看2020的剧本；', 73.5,30,"red");
+
+	//箭头
+	function jianTou1(tuBiao,x,y,frequency) {
+		//tuBiao:图标,x:横坐标，y:纵坐标，frequency:循环次数
+		for (let index = 0; index < frequency; index = index + 1.5) {
+			xieZi(tuBiao,x+index,y+index);
+			
+		}
+
+	}
+		//D2到D3
+		function jianTou2(tuBiao,x,y,frequency) {
+		//tuBiao:图标,x:横坐标，y:纵坐标，frequency:循环次数
+		for (let index = 0; index < frequency; index = index + 3) {
+			xieZi(tuBiao,x-index,y);
+			
+		}
+
+	}
+	jianTou1('⇗',37,5,7);
+	jianTou1('⇙',39,3,13);
+	jianTou2('⟸',42,37,25);
+
 
 </script>
 
