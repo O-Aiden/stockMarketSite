@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas id="cv"></canvas>
+<script>
+    var cv=document.getElementById("cv");
+    cv.style.border="1px solid red";
+    cv.width=900;
+    cv.height=400;
+    var cvt=cv.getContext("2d");
+    //padding为坐标到画布边框的间距,arrWidth为箭头斜边到坐标轴的间距
+    var padding=20,
+        arrWidth=10;
+
+    //原点坐标(padding,cv.height-padding);
+    //x轴顶点坐标(cv.width-padding,cv.height-padding)
+    //y轴顶点坐标(padding,padding)
+
+    //添加起始点
+    cvt.moveTo(padding,padding);
+    cvt.lineTo(padding,cv.height-padding);
+    cvt.lineTo(cv.width-padding,cv.height-padding);
+    //给添加的路径描边
+    cvt.stroke();
+    //y轴顶点(padding-arrWidth,padding+arrWidth),(padding+arrWidth,padding+arrWidth)
+    cvt.moveTo(padding-arrWidth,padding+arrWidth);
+    cvt.lineTo(padding,padding);
+    cvt.lineTo(padding+arrWidth,padding+arrWidth);
+    cvt.stroke();
+    //x轴顶点(cv.width-padding-arrWidth,cv.height-padding-arrWidth)(cv.width-padding-arrWidth,cv.height-padding+arrWidth)
+    cvt.moveTo(cv.width-padding-arrWidth,cv.height-padding-arrWidth);
+    cvt.lineTo(cv.width-padding,cv.height-padding);
+    cvt.lineTo(cv.width-padding-arrWidth,cv.height-padding+arrWidth);
+    cvt.stroke();
+
+    //折线图的数据
+    //方法一:x轴的坐标(n*(cv.width-2*padding-arrWidth)/(data.length+1),)
+    // 计算每个点x轴坐标的思路:
+    // 根据x轴的宽度( 刨除了箭头的宽度 ) 以及 数据的个数,
+    // 两个点间距等分,来计算每两个点之间的距离 公式: pointsWidth = x轴的长度 / ( 数据的个数 + 1 )
+    // x轴长度: cv.width - 2 * padding - arrowWidth
+    // 第n个点的x轴坐标: n * pointsWidth + padding
+    //
+    // y轴的长度 = cv.height - 2 * padding - arrowWidth
+    // y轴的坐标 = cv.height - padding - 当前数据的值 * y轴的长度
+    // 第n个点的y轴坐标 = cv.height - padding - data[n] * y轴的长度
+    // var data= [.1,.3,.6,.4,.8,.5];  //此处数据已经是计算百分比后的,如果为不是就按下面介绍调用方法计算
+
+
+    //ES5中提供的方法:map
+    var tempData=[ 20, 35, 38, 42, 55, 88, 99, 20, 88 ];
+    //借用Math.max这个方法
+    var maxNum=Math.max.apply(null,tempData);
+    //map方法的作用,会遍历一个数组并返回新的数组
+    var data=tempData.map(function(value,index){
+        return value/maxNum;
+    })
+    //方法一:使用forEach
+    cvt.beginPath();
+    data.forEach(function(value,index){          
+        var pointX=(index+1)*(cv.width-2*padding-arrWidth)/(data.length+1); 
+        var pointY=data[index]*(cv.height-2*padding-arrWidth);          
+        var pointY=value*(cv.height-2*padding-arrWidth);        
+        cvt.lineTo(pointX,pointY);     
+    })    
+    cvt.stroke();
+
+    //也可用for,注意描边书写的位置不一样
+    for (var i = 0; i < data.length; i++) {
+        var pointX=(i+1)*(cv.width-2*padding-arrWidth)/(data.length+1);
+        var pointY=data[i]*(cv.height-2*padding-arrWidth);
+        cvt.lineTo(pointX,pointY);
+        cvt.stroke();
+    }
+
+
+
+
+
+</script>
+</body>
+</html>

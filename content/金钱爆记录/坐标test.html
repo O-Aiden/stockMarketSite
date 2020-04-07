@@ -84,6 +84,8 @@ tags:
 		context.strokeStyle = "navy";
 		drawHorizontalAxis();
 		drawVerticalAxis();
+		xieZi('价格',0,51);
+		xieZi('收入',71,-1);
 
 		context.lineWidth = 0.5;
 		context.strokeStyle = "navy";
@@ -311,6 +313,7 @@ tags:
 	context.shadowOffsetY = 3;
 	context.shadowBlur = 5;
 
+
 	drawAxes();
 	drawAxisLabels();
 	xieZi('金钱爆', 10, 50);
@@ -324,7 +327,8 @@ tags:
 	huaShiXian(1,35,35,1);
 	//线D3
 	xieZi('D3', 45,10);
-	xieZi('⭕️(3)', 17, 41.55);
+	setTimeout("xieZi('⭕️(3)', 17, 41.55)",5000);
+	//xieZi('⭕️(3)', 17, 41.55);
 	huaShiXian(10,45,45,10);
 	//线s1
 	xieZi('S1', 46,40);
