@@ -33,20 +33,8 @@ tags:
 <script type="text/javascript">
 	var canvas = document.getElementById("canvas");
 	var context = canvas.getContext("2d");
-	/*
-	//自适应屏幕
 	canvas.width = document.documentElement.clientWidth;
-	canvas.height = document.documentElement.clientHeight;	
-	
-	canvas.width = screen.availWidth;
-	canvas.height = screen.availHeight;
-
-	canvas.width = screen.width;
-	canvas.height = screen.height;
-
-	canvas.width = window.innerWidth;
-	canvas.height = window.innerHeight;
-	*/
+	canvas.height = document.documentElement.clientHeight;
 
 	//水平标尺与canvas的距离
 	var HORIZONTAL_AXIS_MARGIN = 50;
@@ -165,8 +153,12 @@ tags:
 		if (!xianKuan) { xianKuan = 2 }
 		context.lineWidth = xianKuan;
 		context.beginPath();
-		context.moveTo((a / 5 + 1) * 50, (11 - b / 5) * 50);
-		context.lineTo((c / 5 + 1) * 50, (11 - d / 5) * 50);
+		//context.moveTo((a / 5 + 1) * 50, (11 - b / 5) * 50);
+		//context.lineTo((c / 5 + 1) * 50, (11 - d / 5) * 50);
+		context.moveTo(AXIS_ORIGIN.x - SPACE_BETWEEN_ABELS_AND_AXIS + a * 10,
+			AXIS_ORIGIN.y - 0 * VERTICAL_TICK_SPACING + -b * 10);
+		context.lineTo(AXIS_ORIGIN.x - SPACE_BETWEEN_ABELS_AND_AXIS + c * 10,
+			AXIS_ORIGIN.y - 0 * VERTICAL_TICK_SPACING + -d * 10);
 		// 填充颜色
 		if (!color) { color = "black" }
 		context.strokeStyle = color;
@@ -200,8 +192,12 @@ tags:
 		context.setLineDash([xuXian, xuXian]);
 		}
 		context.beginPath();
-		context.moveTo((a / 5 + 1) * 50, (11 - b / 5) * 50);
-		context.lineTo((c / 5 + 1) * 50, (11 - d / 5) * 50);
+		context.moveTo(AXIS_ORIGIN.x - SPACE_BETWEEN_ABELS_AND_AXIS + a * 10,
+			AXIS_ORIGIN.y - 0 * VERTICAL_TICK_SPACING + -b * 10);
+		context.lineTo(AXIS_ORIGIN.x - SPACE_BETWEEN_ABELS_AND_AXIS + c * 10,
+			AXIS_ORIGIN.y - 0 * VERTICAL_TICK_SPACING + -d * 10);
+		//context.moveTo((a / 5 + 1) * 50, (11 - b / 5) * 50);
+		//context.lineTo((c / 5 + 1) * 50, (11 - d / 5) * 50);
 		// 填充颜色
 		if (!color) { color = "black" }
 		context.strokeStyle = color;
@@ -261,14 +257,19 @@ tags:
 * 画点
 * @param point  点
 */
+/*
 	function huaDian(a,b) {
 		context.beginPath();
-		context.moveTo((a / 5 + 1) * 50, (11 - b / 5) * 50);
-		context.lineTo((a / 5 + 1) * 50, (11 - b / 5) * 50);
+		//context.moveTo((a / 5 + 1) * 50, (11 - b / 5) * 50);
+		//context.lineTo((a / 5 + 1) * 50, (11 - b / 5) * 50);
+		context.moveTo(AXIS_ORIGIN.x - SPACE_BETWEEN_ABELS_AND_AXIS + a * 10,
+			AXIS_ORIGIN.y - 0 * VERTICAL_TICK_SPACING + -b * 10);
+		context.lineTo(AXIS_ORIGIN.x - SPACE_BETWEEN_ABELS_AND_AXIS + c * 10,
+			AXIS_ORIGIN.y - 0 * VERTICAL_TICK_SPACING + -d * 10);
 		context.stroke();
 	}
 	//huaDian(4,7);
-
+*/
 
 	//绘制水平轴标注
 
@@ -327,8 +328,8 @@ tags:
 	huaShiXian(1,35,35,1);
 	//线D3
 	xieZi('D3', 45,10);
-	setTimeout("xieZi('⭕️(3)', 17, 41.55)",5000);
-	//xieZi('⭕️(3)', 17, 41.55);
+	//setTimeout("xieZi('⭕️(3)', 17, 41.55)",5000);
+	xieZi('⭕️(3)', 17, 41.55);
 	huaShiXian(10,45,45,10);
 	//线s1
 	xieZi('S1', 46,40);
