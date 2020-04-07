@@ -33,8 +33,11 @@ tags:
 <script type="text/javascript">
 	var canvas = document.getElementById("canvas");
 	var context = canvas.getContext("2d");
-	canvas.width = document.documentElement.clientWidth;
-	canvas.height = document.documentElement.clientHeight;
+	//自适应
+	//canvas.width = document.documentElement.clientWidth;
+	//canvas.height = document.documentElement.clientHeight;
+	canvas.width = 9000;
+	//canvas.height = 900;
 
 	//水平标尺与canvas的距离
 	var HORIZONTAL_AXIS_MARGIN = 50;
