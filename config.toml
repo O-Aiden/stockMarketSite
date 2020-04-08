@@ -25,14 +25,15 @@ pygmentsStyle = "tango" # "emacs" # "autumn" # "manni" # "friendly"
 	author = "Aiden"
 	description = "趣股学堂"
 	copyright = "Released under the Apache 2.0 license"
+	
 
 	# Repository
 	provider = "GitHub"
-	# repo_url = "https://github.com/john-deng/hugo-material-docs"
+	# repo_url = "https://github.com/O-Aiden/stockMarketSite.git"
 
 	version = ""
-	# logo = "https://thumbnail0.baidupcs.com/thumbnail/86818cbcd81980991eaca20913c66e0a?fid=1506800556-250528-551885118739241&time=1568106000&rt=sh&sign=FDTAER-DCb740ccc5511e5e8fedcff06b081203-RD1qcCcQoEilx1l7naMcFzgQiLg%3D&expires=8h&chkv=0&chkbd=0&chkpc=&dp-logid=96848157137398824&dp-callid=0&size=c710_u400&quality=100&vuk=-&ft=video"
-	favicon = ""
+	# logo = "https://cdn.jsdelivr.net/gh/O-Aiden/cdn@1.2/dog.jpg"
+	favicon = "https://cdn.jsdelivr.net/gh/O-Aiden/cdn@1.2/dog.jpg"
 
 	permalink = "#"
 
@@ -44,8 +45,10 @@ pygmentsStyle = "tango" # "emacs" # "autumn" # "manni" # "friendly"
 	highlight_css  = ""
 
 	[params.palette]
+		#primary = "grey"
     	primary = "indigo"
     	accent  = "deep-purple"
+		#accent  = "light-green"
 
     [params.font]
     	text = "Ubuntu"
@@ -55,6 +58,12 @@ pygmentsStyle = "tango" # "emacs" # "autumn" # "manni" # "friendly"
 [social]
 	github  = "Aiden"
 	email   = "hello@email.com"
+[[menu.main]]
+  	name   = "2020金钱爆记录"
+  	url    = "https://optimistic-mestorf-865fd8.netlify.com/金钱爆记录/2020金钱爆记录/"
+ 	weight = 1
+ 	pre    = "🏆"
+
 [blackfriday]
 	smartypants	= true
 	fractions = true
