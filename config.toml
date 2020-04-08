@@ -1,4 +1,5 @@
-baseURL = "https://optimistic-mestorf-865fd8.netlify.com"
+baseURL = "https://optimistic-mestorf-865fd8.netlify.com/k线战法汇总/"
+#baseURL = "https://optimistic-mestorf-865fd8.netlify.com"
 title = "趣股学堂"
 theme = "hugo-material-docs"
 metadataformat = "yaml"
