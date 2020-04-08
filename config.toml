@@ -1,5 +1,5 @@
-baseURL = "https://optimistic-mestorf-865fd8.netlify.com/金钱爆记录/2020金钱爆记录/"
-#baseURL = "https://optimistic-mestorf-865fd8.netlify.com"
+#baseURL = "https://optimistic-mestorf-865fd8.netlify.com/金钱爆记录/2020金钱爆记录/"
+baseURL = "https://optimistic-mestorf-865fd8.netlify.com"
 title = "趣股学堂"
 theme = "hugo-material-docs"
 metadataformat = "yaml"
