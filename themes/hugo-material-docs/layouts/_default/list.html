@@ -27,7 +27,7 @@
             </a>
             <br> 
            
-              {{substr .Summary 0 50 | markdownify }} 
+              {{substr .Summary 0 0 | markdownify }} 
               <a href="{{ .Permalink }}"><br>[阅读全文]</a>  
             
             <hr> {{ end }}

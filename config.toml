@@ -63,6 +63,11 @@ pygmentsStyle = "tango" # "emacs" # "autumn" # "manni" # "friendly"
   	url    = "https://optimistic-mestorf-865fd8.netlify.com/金钱爆记录/2020金钱爆记录/"
  	weight = 1
  	pre    = "🏆"
+[[menu.main]]
+  	name   = "通胀模型"
+  	url    = "https://optimistic-mestorf-865fd8.netlify.com/金钱爆记录/坐标test/"
+ 	weight = 1
+ 	pre    = "🏆"	 
 
 [blackfriday]
 	smartypants	= true
@@ -72,4 +77,3 @@ pygmentsStyle = "tango" # "emacs" # "autumn" # "manni" # "friendly"
 [outputs]
 	home = [ "HTML", "JSON"]
 	page = [ "HTML", "JSON"]
-
