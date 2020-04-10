@@ -65,7 +65,14 @@ pygmentsStyle = "tango" # "emacs" # "autumn" # "manni" # "friendly"
  	pre    = "🏆"
 [[menu.main]]
   	name   = "通胀模型"
-  	url    = "https://optimistic-mestorf-865fd8.netlify.com/金钱爆记录/坐标test/"
+  	url    = "https://optimistic-mestorf-865fd8.netlify.com/金钱爆记录/新冠通胀模型/"
+
+ 	weight = 1
+ 	pre    = "🏆"	 
+[[menu.main]]
+  	name   = "宏观数据"
+  	url    = "https://optimistic-mestorf-865fd8.netlify.com/宏观数据/宏观数据/"
+
  	weight = 1
  	pre    = "🏆"	 
 

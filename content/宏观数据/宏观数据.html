@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html style="height: 100%">
+   <head>
+       <meta charset="utf-8">
+   </head>
+   <body style="height: 100%; margin: 0">
+        <div id="container" style="height: 46%; ;margin: 0"></div>
+       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
+       <script type="text/javascript">
+var dom = document.getElementById("container");
+var myChart = echarts.init(dom);
+var app = {};
+option = null;
+option = {
+    title: {
+        text: '基础雷达图'
+    },
+    tooltip: {},
+    legend: {
+        data: ['2020年2月份', '2020年1月份', '2019年12月份']
+    },
+    radar: {
+        // shape: 'circle',
+        name: {
+            textStyle: {
+                color: '#fff',
+                backgroundColor: '#999',
+                borderRadius: 3,
+                padding: [3, 5]
+            }
+        },
+        indicator: [
+            { name: 'CPI（同比）', max: 5.5},
+            { name: 'PPI', max: 9},
+            { name: 'PMI', max: 10},
+        ]
+    },
+    series: [{
+        name: '预算 vs 开销（Budget vs spending）',
+        type: 'radar',
+        // areaStyle: {normal: {}},
+        data: [
+            {
+                value: [5.2, 8.8,7],
+                name: '2020年2月份'
+            },
+            {
+                value: [5.4, 8.4,3],
+                name: '2020年1月份'
+            },
+            {
+                value: [4.5, 8.7,2],
+                name: '2019年12月份'
+            }
+        ]
+    }]
+};;
+if (option && typeof option === "object") {
+    myChart.setOption(option, true);
+}
+       </script>
+
+<div id="container1" style="height: 50% ;margin: 0"></div>
+
+
+<script type="text/javascript">
+var dom = document.getElementById("container1");
+var myChart = echarts.init(dom);
+var app = {};
+option = null;
+
+CPI = [['2018年07月份',2.1],
+['2018年08月份',2.3],
+['2018年09月份',2.5],
+['2018年10月份',2.5],
+['2018年11月份',2.2],
+['2018年12月份',1.9],
+['2019年01月份',1.7],
+['2019年02月份',1.5],
+['2019年03月份',2.3],
+['2019年04月份',2.5],
+['2019年05月份',2.7],
+['2019年06月份',2.7],
+['2019年07月份',2.8],
+['2019年08月份',2.8],
+['2019年09月份',3.0],
+['2019年10月份',3.8],
+['2019年11月份',4.5],
+['2019年12月份',4.5],
+['2020年01月份',5.4],
+['2020年02月份',5.2]];
+
+M2 = [['2018年07月份',8.50],
+['2018年08月份',8.20],
+['2018年09月份',8.30],
+['2018年10月份',8.00],
+['2018年11月份',8.00],
+['2018年12月份',8.10],
+['2019年01月份',8.40],
+['2019年02月份',8.00],
+['2019年03月份',8.60],
+['2019年04月份',8.50],
+['2019年05月份',8.50],
+['2019年06月份',8.50],
+['2019年07月份',8.10],
+['2019年08月份',8.20],
+['2019年09月份',8.40],
+['2019年10月份',8.40],
+['2019年11月份',8.20],
+['2019年12月份',8.70],
+['2020年01月份',8.40],
+['2020年02月份',8.80]];
+
+var dateListCPI = CPI.map(function (item) {
+return item[0];
+});
+var valueListCPI = CPI.map(function (item) {
+return item[1];
+});
+
+var dateListM2 = M2.map(function (item) {
+return item[0];
+});
+var valueListM2 = M2.map(function (item) {
+return item[1];
+});
+
+option = {
+
+// Make gradient line here
+visualMap: [{
+ show: false,
+ type: 'continuous',
+ seriesIndex: 0,
+ min: 'dataMin',
+ max: 400
+}, {
+ show: false,
+ type: 'continuous',
+ seriesIndex: 1,
+ dimension: 0,
+ min: 100,
+ max: dateListCPI.length - 1
+}],
+
+
+title: [{
+ top: '8%',
+ left: '10%',
+ text: 'CPI(同比)/%'
+}, {
+ top: '53%',
+ left: '10%',
+ text: 'M2增速(同比)/%'
+}],
+tooltip: {
+ trigger: 'axis'
+},
+xAxis: [{
+ data: dateListCPI
+}, {
+ data: dateListCPI,
+ gridIndex: 1
+},
+{
+ data: dateListM2,
+ gridIndex: 2
+}],
+yAxis: [{
+ splitLine: {show: false},
+ min: 'dataMin'
+}, {
+ splitLine: {show: false},
+ gridIndex: 1,
+ min: 'dataMin'
+}, {
+ splitLine: {show: false},
+ gridIndex: 2
+}],
+grid: [{
+ bottom: '60%',
+ right: '52.5%'
+}, {
+ top: '60%',
+ right: '52.5%'
+}, {
+ bottom: '60%',
+ left: '52.5%'
+}],
+series: [{
+ type: 'line',
+ showSymbol: false,
+ data: valueListCPI
+}, {
+ type: 'line',
+ showSymbol: false,
+ data: valueListM2,
+ xAxisIndex: 1,
+ yAxisIndex: 1
+}, {
+ type: 'line',
+ showSymbol: false,
+ data: valueListCPI,
+ xAxisIndex: 2,
+ yAxisIndex: 2
+}]
+};;
+if (option && typeof option === "object") {
+myChart.setOption(option, true);
+}
+</script>
+   </body>
+</html>
