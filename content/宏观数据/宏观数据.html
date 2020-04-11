@@ -12,7 +12,7 @@
                box-sizing: border-box;
            }
            .three{
-            background-color: violet;
+            background-color: #040f3c;
              height: 100%; width: 100%; margin: 400px 0;
            }
            .four{
@@ -266,6 +266,7 @@ NewCredit =[['2018年08月份',	14.60],
 ['2020年02月份',	-5.74],
 ['2020年03月份',	55.09]]
 
+
 var dateListCPI = CPI.map(function (item) {
 return item[0];
 });
@@ -295,7 +296,8 @@ visualMap: [{
  seriesIndex: 0,
  min: 'dataMin',
  max: 400
-}, {
+}
+, {
  show: false,
  type: 'continuous',
  seriesIndex: 1,
@@ -322,7 +324,7 @@ xAxis: [{
  data: dateListCPI,
  gridIndex: indexCPI
 }, {
- data: dateListCPI,
+ data: dateListM2,
  gridIndex: indexM2
 },
 {
