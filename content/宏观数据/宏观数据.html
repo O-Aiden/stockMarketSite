@@ -1,23 +1,159 @@
+---
+desc: 由 genpost (https://github.com/hidevopsio/genpost) 代码生成器生成
+title: 新冠通胀模型
+date: 2019-09-11T13:45:57+08:00
+author: Aiden
+draft: false
+tags:
+- 金钱爆记录
+---
 <!DOCTYPE html>
 <html style="height: 100%">
    <head>
        <meta charset="utf-8">
+       <style>
+           .one,.two{
+               background-color: turquoise;
+               width: 50%;
+               height: 400px;
+               border: 1px solid white;
+               float: left;
+               box-sizing: border-box;
+           }
+           .three{
+            background-color: violet;
+             height: 100%; width: 100%; margin: 400px 0;
+           }
+           .four{
+             border:1px solid white;
+           }
+       </style>
    </head>
+
    <body style="height: 100%; margin: 0">
-        <div id="container" style="height: 46%; ;margin: 0"></div>
-       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
-       <script type="text/javascript">
-var dom = document.getElementById("container");
+    <div class="four">
+    <div id="container1" class="one"></div>
+    <div id="container2" class="two"></div>
+</div>
+    <div id="container3" class="three"></div>
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts-gl/dist/echarts-gl.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts-stat/dist/ecStat.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/dist/extension/dataTool.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/map/js/china.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/map/js/world.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/dist/extension/bmap.min.js"></script>
+    <script type="text/javascript">
+var dom = document.getElementById("container1");
 var myChart = echarts.init(dom);
 var app = {};
 option = null;
 option = {
+ title: {
+     text: ''
+ },
+ tooltip: {},
+ legend: {
+     data: ['预算分配（Allocated Budget）', '实际开销（Actual Spending）']
+ },
+ radar: {
+     // shape: 'circle',
+     name: {
+         textStyle: {
+             color: '#fff',
+             backgroundColor: '#999',
+             borderRadius: 3,
+             padding: [3, 5]
+         }
+     },
+     indicator: [
+         { name: '销售（sales）', max: 6500},
+         { name: '管理（Administration）', max: 16000},
+         { name: '信息技术（Information Techology）', max: 30000},
+         { name: '客服（Customer Support）', max: 38000},
+         { name: '研发（Development）', max: 52000},
+         { name: '市场（Marketing）', max: 25000}
+     ]
+ },
+ series: [{
+     name: '预算 vs 开销（Budget vs spending）',
+     type: 'radar',
+     // areaStyle: {normal: {}},
+     data: [
+         {
+             value: [4300, 10000, 28000, 35000, 50000, 19000],
+             name: '预算分配（Allocated Budget）'
+         },
+         {
+             value: [5000, 14000, 28000, 31000, 42000, 21000],
+             name: '实际开销（Actual Spending）'
+         }
+     ]
+ }]
+};;
+if (option && typeof option === "object") {
+ myChart.setOption(option, true);
+}
+    </script>
+
+       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
+       <script type="text/javascript">
+var dom = document.getElementById("container2");
+var myChart = echarts.init(dom);
+var app = {};
+//雷达图数据
+//CPI雷达数据
+var CPIN = 4.3;var CPIP = 5.2;
+var CPINa = "CPI同比";
+var CPIName = upDownName(CPIN,CPIP,CPINa);
+//M2雷达数据
+var M2N = 10.1;var M2P = 8.8;
+var M2Na = "M2同比";
+var M2Name = upDownName(M2N,M2P,M2Na);
+//雷达新增信贷数据
+var NewCreditN = 55.09;var NewCreditP = -5.74;
+var NewCreditNa = "新增信贷同比";
+var NewCreditName = upDownName(NewCreditN,NewCreditP,NewCreditNa);
+//雷达PPI数据
+var PPIN = -1.5;var PPIP = -0.4;
+var PPINa = "PPI同比";
+var PPIName = upDownName(PPIN,PPIP,PPINa);
+//雷达PPI数据
+var PMIN = 2.97;var PMIP = -27.44;
+var PMINa = "PMI同比";
+var PMIName = upDownName(PMIN,PMIP,PMINa);
+//雷达外汇储备数据
+var FERN = 30606.33;var FERP = 31067.18;
+var FERNa = "外汇储备";
+var FERName = upDownName(FERN,FERP,FERNa);
+
+
+function upDownName(N,P,Na) {
+    //N：现在的数据；P：过去的数字；Na：指标名字
+    if (N != P) {
+    if (N > P) {
+        Name = Na+"🔴";
+    } else {
+        Name = Na+"🔵";
+    }
+    
+    }    
+    else {
+     Name =Na+"⚪️";
+}
+    return Name;
+}
+
+option = null;
+option = {
     title: {
-        text: '基础雷达图'
+        text: ''
     },
     tooltip: {},
     legend: {
-        data: ['2020年2月份', '2020年1月份', '2019年12月份']
+        //##对比的时间（每个月改一次）
+        data: ['2020年3月份','2020年2月份']
     },
     radar: {
         // shape: 'circle',
@@ -30,27 +166,27 @@ option = {
             }
         },
         indicator: [
-            { name: 'CPI（同比）', max: 5.5},
-            { name: 'PPI', max: 9},
-            { name: 'PMI', max: 10},
+            //##指标名称和雷达图最大最小值设置（新增指标时更改）
+            { name: CPIName, max: 5.5, min: 4},
+            { name: M2Name, max: 10.1,min:8},
+            { name: NewCreditName, max: 51,min: -6},
+            { name: PPIName, max: 0,min: -2},
+            { name: PMIName, max: 3,min: -28},
+            { name: FERName, max: 31068,min: 30606},
         ]
     },
     series: [{
-        name: '预算 vs 开销（Budget vs spending）',
+        name: '',
         type: 'radar',
         // areaStyle: {normal: {}},
         data: [
+             {
+                value: [CPIN, M2N,NewCreditN,PPIN,PMIN,FERN],
+                name: '2020年3月份'
+            },
             {
-                value: [5.2, 8.8,7],
+                value: [CPIP, M2P,NewCreditP,PPIP,PMIP,FERP],
                 name: '2020年2月份'
-            },
-            {
-                value: [5.4, 8.4,3],
-                name: '2020年1月份'
-            },
-            {
-                value: [4.5, 8.7,2],
-                name: '2019年12月份'
             }
         ]
     }]
@@ -60,12 +196,17 @@ if (option && typeof option === "object") {
 }
        </script>
 
-<div id="container1" style="height: 50% ;margin: 0"></div>
+
 
 
 <script type="text/javascript">
-var dom = document.getElementById("container1");
+var dom = document.getElementById("container3");
 var myChart = echarts.init(dom);
+
+var indexCPI = 0;
+var indexM2 = 1;
+var indexNewCredit = 2;
+
 var app = {};
 option = null;
 
@@ -88,7 +229,8 @@ CPI = [['2018年07月份',2.1],
 ['2019年11月份',4.5],
 ['2019年12月份',4.5],
 ['2020年01月份',5.4],
-['2020年02月份',5.2]];
+['2020年02月份',5.2],
+['2020年03月份',4.3]];
 
 M2 = [['2018年07月份',8.50],
 ['2018年08月份',8.20],
@@ -109,7 +251,29 @@ M2 = [['2018年07月份',8.50],
 ['2019年11月份',8.20],
 ['2019年12月份',8.70],
 ['2020年01月份',8.40],
-['2020年02月份',8.80]];
+['2020年02月份',8.80],
+['2020年03月份',10.10]];
+
+NewCredit =[['2018年08月份',	14.60],
+['2018年09月份',	20.67],
+['2018年10月份',	7.63],
+['2018年11月份',	7.65],
+['2018年12月份',	60.87],
+['2019年01月份',	32.84],
+['2019年02月份',	-25.09],
+['2019年03月份',	71.42],
+['2019年04月份',	-20.52],
+['2019年05月份',	4.03],
+['2019年06月份',	-0.30],
+['2019年07月份',	-37.13],
+['2019年08月份',	-0.72],
+['2019年09月份',	22.81],
+['2019年10月份',	-23.41],
+['2019年11月份',	10.82],
+['2019年12月份',	16.04],
+['2020年01月份',	-2.09],
+['2020年02月份',	-5.74],
+['2020年03月份',	55.09]]
 
 var dateListCPI = CPI.map(function (item) {
 return item[0];
@@ -122,6 +286,12 @@ var dateListM2 = M2.map(function (item) {
 return item[0];
 });
 var valueListM2 = M2.map(function (item) {
+return item[1];
+});
+var dateListNewCredit = NewCredit.map(function (item) {
+return item[0];
+});
+var valueListNewCredit = NewCredit.map(function (item) {
 return item[1];
 });
 
@@ -143,7 +313,7 @@ visualMap: [{
  max: dateListCPI.length - 1
 }],
 
-
+/*
 title: [{
  top: '8%',
  left: '10%',
@@ -153,56 +323,71 @@ title: [{
  left: '10%',
  text: 'M2增速(同比)/%'
 }],
+*/
 tooltip: {
  trigger: 'axis'
 },
 xAxis: [{
- data: dateListCPI
+ data: dateListCPI,
+ gridIndex: indexCPI
 }, {
  data: dateListCPI,
- gridIndex: 1
+ gridIndex: indexM2
 },
 {
- data: dateListM2,
- gridIndex: 2
+ data: dateListNewCredit,
+ gridIndex: indexNewCredit
 }],
 yAxis: [{
+ name: 'CPI(同比)/%',
  splitLine: {show: false},
+ gridIndex:indexCPI,
  min: 'dataMin'
 }, {
+ name:'M2(同比)%',
  splitLine: {show: false},
- gridIndex: 1,
+ gridIndex: indexM2,
  min: 'dataMin'
 }, {
+ name:'新增信贷(同比)/%',
  splitLine: {show: false},
- gridIndex: 2
+ gridIndex: indexNewCredit,
+ min: 'dataMin'
 }],
 grid: [{
- bottom: '60%',
+    //左1
+ top: '50rpx',
+ height:'150rpx',
  right: '52.5%'
 }, {
- top: '60%',
+    //左2
+ top: '250rpx',
+ height:'150',
  right: '52.5%'
 }, {
- bottom: '60%',
+    //右1
+top:'50rpx',
+height:'150rpx',
  left: '52.5%'
 }],
 series: [{
  type: 'line',
  showSymbol: false,
- data: valueListCPI
+ data: valueListCPI,
+ xAxisIndex: indexCPI,
+ yAxisIndex: indexCPI
 }, {
  type: 'line',
  showSymbol: false,
  data: valueListM2,
- xAxisIndex: 1,
- yAxisIndex: 1
+ xAxisIndex: indexM2,
+ yAxisIndex: indexM2
 }, {
  type: 'line',
  showSymbol: false,
- data: valueListCPI,
- xAxisIndex: 2,
- yAxisIndex: 2
+ data: valueListNewCredit,
+ xAxisIndex: indexNewCredit,
+ yAxisIndex: indexNewCredit
 }]
 };;
 if (option && typeof option === "object") {
@@ -210,4 +395,5 @@ myChart.setOption(option, true);
 }
 </script>
    </body>
+   
 </html>
