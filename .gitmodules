@@ -1,0 +1,15 @@
+[submodule "workplace/mySite/themes/hugo-theme-doors"]
+	path = workplace/mySite/themes/hugo-theme-doors
+	url = https://github.com/zzzmisa/hugo-theme-doors.git
+[submodule "workplace/themes/newsroom"]
+	path = workplace/themes/newsroom
+	url = https://github.com/onweru/newsroom.git
+[submodule "workplace/newroom/themes/newsroom"]
+	path = workplace/newroom/themes/newsroom
+	url = https://github.com/onweru/newsroom.git
+[submodule "workplace/newsroomSite/themes/newsroom"]
+	path = workplace/newsroomSite/themes/newsroom
+	url = https://github.com/onweru/newsroom.git
+[submodule "workplace/K-line-site/themes/hugo-cards"]
+	path = workplace/K-line-site/themes/hugo-cards
+	url = https://github.com/bul-ikana/hugo-cards.git

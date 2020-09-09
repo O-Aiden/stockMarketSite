@@ -1,0 +1,65 @@
+baseURL = "https://optimistic-mestorf-865fd8.netlify.com"
+title = "趣股学堂"
+theme = "hugo-material-docs"
+metadataformat = "yaml"
+canonifyurls = true
+sectionPagesMenu = "main"
+# Enable Google Analytics by entering your tracking id
+googleAnalytics = ""
+# Code highlighting options
+# Hugo uses Chroma but names are the same as the old pygments highlighter
+
+# Highlight shortcode and code fences (```) will be treated similarly
+pygmentscodefences = true
+
+# Change highlight style here.
+# For a full list see: https://xyproto.github.io/splash/docs/all.html
+pygmentsStyle = "tango" # "emacs" # "autumn" # "manni" # "friendly"
+
+# Other Chroma options can be added here (and in the highlight shortcode in the markdown file)
+# See list of supported options: https://gohugo.io/content-management/syntax-highlighting/#options
+# for example: pygmentsoptions = "linenos=true"
+[params]
+	# General information
+	author = "Aiden"
+	description = "趣股学堂"
+	copyright = "Released under the Apache 2.0 license"
+
+	# Repository
+	provider = "GitHub"
+	# repo_url = "https://github.com/john-deng/hugo-material-docs"
+
+	version = ""
+	# logo = "https://thumbnail0.baidupcs.com/thumbnail/86818cbcd81980991eaca20913c66e0a?fid=1506800556-250528-551885118739241&time=1568106000&rt=sh&sign=FDTAER-DCb740ccc5511e5e8fedcff06b081203-RD1qcCcQoEilx1l7naMcFzgQiLg%3D&expires=8h&chkv=0&chkbd=0&chkpc=&dp-logid=96848157137398824&dp-callid=0&size=c710_u400&quality=100&vuk=-&ft=video"
+	favicon = ""
+
+	permalink = "#"
+
+	# Custom assets
+	custom_css = []
+	custom_js  = []
+
+	# Syntax highlighting theme
+	highlight_css  = ""
+
+	[params.palette]
+    	primary = "indigo"
+    	accent  = "deep-purple"
+
+    [params.font]
+    	text = "Ubuntu"
+    	code = "Ubuntu Mono"
+
+
+[social]
+	github  = "Aiden"
+	email   = "hello@email.com"
+[blackfriday]
+	smartypants	= true
+	fractions = true
+	smartDashes = true
+	plainIDAnchors = true
+[outputs]
+	home = [ "HTML", "JSON"]
+	page = [ "HTML", "JSON"]
+
